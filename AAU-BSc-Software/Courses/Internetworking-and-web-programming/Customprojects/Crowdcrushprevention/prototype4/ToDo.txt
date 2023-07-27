@@ -1,0 +1,2 @@
+- Fix bug of wall drawing when cell size is changed
+    - It only happens if u switch to the settings submenu while the wall submenu is open.

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IWP Health App</title>
+    <link rel="stylesheet" type="text/css" href="simple.css">
+</head>
+<body>
+
+<section> 
+  <h1 id="id1"> IWP BMI-recorder </h1>
+  <form id="bmiForm_id"  action=" https://httpbin.org/post" method="post"> 
+    <fieldset>
+      <legend>Personal information:</legend>
+      <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+      <label for="name_id"> Name</label>
+      <input type="text"  name="name" id="name_id" value="Mickey" required minlength="1" maxlength="30"> 
+      <label for="height_id"> Height (cm):</label> 
+      <input type="number" name="height" id="height_id" value="" min="1" max="300" required> 
+      <label for="weight_id"> Weight (kg):</label> 
+      <input type="number" name="weight" id="weight_id" value="" min="1" max="300" required>     
+ 
+      <label for="age_id"> Age (years):</label> 
+      <input type="number" name="age" id="age_id" value="" min="5" max="120" required>
+      
+      <label for="femaleSex_id">Female</label>
+      <input type="radio" id="femaleSex_id" name="sex" value="female" checked="" required>
+      <label for="maleSex_id">Male</label>
+      <input type="radio" id="maleSex_id" name="sex" value="male" required checked>
+      <label for="indifferentSex_id">Indifferent</label>
+      <input type="radio" id="indifferentSex_id" name="sex" value="indifferent" required checked>
+  <input type="submit" id="submitBtn_id" value="Record">
+</div>
+ </fieldset> 
+</form>
+</section>
+
+
+</body>
+</html>
+

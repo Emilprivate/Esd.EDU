@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IWP Promises exercise</title>
+  <meta charset="UTF-8">
+<script>
+function sleep(ms){
+  function sleepExecutor(resolve,reject) { 
+      setTimeout(resolve, ms);
+  }
+  return new Promise(sleepExecutor);
+};
+
+function clickHandler() {
+	sleep(2000)
+	.then(() => {console.log("hej"); return sleep(2000);})
+	.then(() => {console.log("IWP"); return sleep(2000);})
+	.then(() => {console.log("I am done")});
+}
+
+</script>
+</head>
+<body>
+    <button type="button" id="buttonPromises" >Talk!</button>
+</body>
+
+<script>
+document.getElementById("buttonPromises").addEventListener("click", clickHandler);
+</script>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Ugly Portfolio</title>
+	<style>
+		body {
+			background-color: #666;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			margin: 0 auto;
+			max-width: 960px;
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 48px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		h2 {
+			font-size: 36px;
+			margin-top: 60px;
+			text-align: center;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 20px;
+			text-align: justify;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+
+		li {
+			display: inline-block;
+			margin: 0 20px;
+		}
+
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.btn {
+			background-color: #333;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 18px;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn:hover {
+			background-color: #666;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>My Ugly Portfolio</h1>
+		</header>
+		
+		<main>
+			<h2>About Me</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel augue mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed neque non lectus lobortis ullamcorper quis eget erat. Proin a justo interdum, bibendum leo nec, sodales nibh. Morbi varius enim eget metus imperdiet, id vulputate mauris accumsan. Vestibulum pulvinar risus vel ipsum congue, sed euismod mi luctus.</p>
+			
+			<h2>My Projects</h2>
+			<ul>
+				<li><a href="#" class="btn">Project 1</a></li>
+				<li><a href="#" class="btn">Project 2</a></li>
+				<li><a href="#" class="btn">Project 3</a></li>
+			</ul>
+			
+			<h2>Contact Me</h2>
+			<form action="#" method="post">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name">
+				
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email">
+				
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea>
+				
+				<input type="submit" value="Send" class="btn">
+			</form>
+        </main>
+        <footer>
+            <p>&copy; 2023 My Ugly Portfolio</p>
+        </footer>
+    </div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spy Site</title>
+  <style>
+    button, img {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button onmouseover="logInteraction('Button 1')">Button 1</button>
+  <button onmouseover="logInteraction('Button 2')">Button 2</button>
+  <script>
+    async function logInteraction(element) {
+      const response = await fetch('/interaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ element }),
+      });
+
+      if (!response.ok) {
+        console.error('Error logging interaction');
+      }
+    }
+  </script>
+</body>
+</html>

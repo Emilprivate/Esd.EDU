@@ -1,0 +1,95 @@
+body.xp {
+    font-family: Tahoma,Verdana,Segoe,sans-serif; 
+    background-color: var(--window-bg);
+}
+
+:root {
+    --windows-blue: #357EC7;
+    --taskbar-highlight: #4590e5;
+    --taskbar-dark: #2359d6;
+    --taskbar-light: var(--foreground-blue-header);
+    --control: #faffff;
+    --window-bg: #e9e7d8;
+
+    --foreground-blue-header: #2d61c6;
+    --foreground-blue: #3c70cc;
+
+    --border-blue: #366478;
+    --border-blue-active: #3677a1;
+
+    --very-light-blue: #d6dff7;
+}
+
+.xp.box {
+    padding: 12px;
+}
+
+.xp.box.fit {
+    width: fit-content;
+}
+
+.xp.box.taskbar {
+    background: linear-gradient(180deg, var(--taskbar-highlight), var(--taskbar-dark) 15%, var(--taskbar-highlight) 110%);
+}
+
+.xp.box.dropdown {
+    padding: 0;
+    min-width: 150px;
+}
+
+.xp.box.dropdown.big {
+    min-width: 220px;
+}
+
+.xp.box.dropdown.big .title {
+    font-size: larger;
+}
+.xp.box.dropdown.big .content {
+    font-size: large;
+}
+
+.xp.box.dropdown .title {
+    padding: 4px;
+    color: var(--foreground-blue-header);
+    font-weight: 200;
+    font-size: small;
+
+    background: linear-gradient(90deg, #fff, var(--very-light-blue));
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.xp.box.dropdown .content {
+    font-size: smaller;
+    color: var(--foreground-blue);
+    background: var(--very-light-blue);
+    border: 1px solid #eee;
+    padding: 4px;
+    border-top: 0;
+}
+
+.xp.header {
+    font-size: 32pt;
+}
+
+button.xp {
+    border: 1px solid var(--border-blue);
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--control), #edece6);
+    padding: 2px 16px;
+    
+    box-shadow: inset 0px 0px 1px 1px var(--border-blue-active);
+    
+}
+
+button.xp:hover {
+    box-shadow: inset 0px 0px 2px 2px #e5a01a;
+}
+button.xp:active {
+    background-color: var(--window-bg);
+}
+
+button.xp:focus {
+    box-shadow: inset 0px 0px 2px 2px var(--border-blue-active);
+    border: 1px dotted #111;
+    outline: 1px solid var(--border-blue);
+}

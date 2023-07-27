@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>BMI Help Page</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/simple.css">
+</head>
+<body>
+
+<h1>Body Mass Index</h1>
+<abbr>BMI</abbr> (Body Mass Index) is a widely used and simple, method for estimating whether you are over- or under- normal weight. 
+It can give an indication of possible healt problems.
+
+<figure>
+    <img src="../img/BMI.png"
+         width="300"
+         alt="3 persons with different BMI (under-weight, normal-weight, over-weight)."
+         title="Illustration of BMI">
+    <figcaption>Figure 1: The figure illustrates the meaning of BMI-numbers. <cite> Img. from wikipedia</cite></figcaption>
+</figure>
+
+<h2>Background</h2>
+
+Based on your BMI number, you can use the BMI-classification shown in the following table, to get an indication of you weight class. 
+
+<table id="scoretable">
+    <caption>Table 1: BMI Classification for Adults. From <cite>LEX <a href="https://denstoredanske.lex.dk/body_mass_index">lex.dk</a></cite> </caption>
+    <thead>
+        <tr>
+            <th> BMI range </th><th>Weight Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td>&lt;18.5  </td><td>under-weight</td>
+        </tr>
+         <tr> 
+            <td>&lt;18.5-25  </td><td>normal-weight</td>
+         </tr>
+         <tr> 
+            <td>&lt;25-30  </td><td>over-weight</td>
+          </tr>
+          <tr> 
+            <td>&gt; 30  </td><td>obese</td>
+          </tr>
+    </tbody>
+</table>
+
+<p>Remark, that can use this BMI classification for adults, both men and women. It does not apply to children and teenagers because the BMI scale here depends
+on age and sex. </p>
+
+<p>Also beware that the BMI method has <a href="https://iform.dk/vaegttab/hvad-betyder-dit-bmi-tal#BMI-ulemper"> limitations </a> and that 
+    <a href="#alternative_methods">other methods </a> exist. </p>
+
+<h2>Calculation Method</h2>
+<p>BMI is based on height and weight of your body. It is calculated by dividing you weight measured in kg divided by your height in meters squarred,
+     see <a href="#bmi-formula"> Equation 1</a>.</p>
+
+<figure id="bmi-formula">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/MathML/Element -->
+<math>
+    <mrow><mi>BMI </mi> <mo>=</mo>  <mfrac>
+        <mi>weight (kg) </mi>
+        <msup><mi>height (m) </mi><mn>2</mn></msup>
+      </mfrac>
+      </mrow>
+</math>
+<figcaption>Equation 1: Computing BMI-number.</figcaption>
+</figure>
+
+<h2 id="alternative_methods">Alternative Methods</h2>
+<dl>
+    <dt>Body-fat contents:</dt>
+    <dd>You can buy a special apparatus that can measure the amount of fat, muscles, and bones in your body. It is also available in most fitness centres.
+    </dd>
+
+    <dt>Waist line:</dt>
+    <dd>Measure the circumference of yuor waist line. This number is an indication of how much fat is on your stomack. This is typically unhealthy fat. Etc. Etc.</dd>
+
+    <dt>Waist-to-hip ratio:</dt>
+    <dd>Measure both you waist line and hip circumference. By dividing these numbers you get an indication of how your fat is distributed, e.g., pear vs. apple shaped.</dd>
+    <dt> And so on </dt>
+    <dd>...</dd>
+</dl>
+
+
+<h2>Executing the BMI console application</h2>
+The game is implemented in node.js and assumes that is installed. The game can be started from the command line by executing the command  
+<pre>command&gt; node ./bmi-console.js</pre>
+<p>Then it will print out the scoreboard in the terminal, and generate a file "bmiStatus.html" that can be viewed in your favourite browser.</p>
+
+<footer>Authored by Brian Nielsen <a href="mailto:bnielsen@cs.aau.dk">bnielsen@cs.aau.dk</a>. Copyright &copy;: none whatsoever. Responsibility: none whatsoever.
+</footer>
+</body>
+</html>

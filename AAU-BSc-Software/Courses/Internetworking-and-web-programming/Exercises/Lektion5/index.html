@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <title>IWP Demo</title>
+  <meta charset="UTF-8">
+</head>
+<body>   
+  <form id="beerForm">
+    <fieldset>
+      <legend> Vælg Øl Type: </legend>
+      <input type="radio" name="gæringstype" value="ales" checked> Overgæret (Ale)       
+      <input type="radio" name="gæringstype" value="lagers"> Undergæret (Lager)  
+      <input type="radio" name="gæringstype" value="wilds" > Vildtgæret (Lambic)
+      <input type="button" value="Start" id="startButton">
+    </fieldset>
+  </form>
+
+  <script>
+    // 1):
+    function listChecked() {
+      const radioButtons = document.querySelectorAll('input[type="radio"][name="gæringstype"]');
+      radioButtons.forEach(button => {
+        console.log(button.value, button.checked);
+      });
+    }
+
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', listChecked);
+
+    const radioButtons = document.querySelectorAll('input[type="radio"][name="gæringstype"]');
+    radioButtons.forEach(button => {
+      button.addEventListener('click', listChecked);
+    });
+
+    // 2):
+    const form = document.getElementById('beerForm');
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Vælg en Øl-type';
+    form.before(h1);
+
+    // 3a):
+    const startButton2 = document.querySelector('input[type="button"]');
+    startButton.addEventListener('click', listChecked);
+
+    // 3b):
+    const radioButtons2 = document.querySelectorAll('input[name="gæringstype"]');
+    radioButtons.forEach((radio) => {
+    radio.addEventListener('click', listChecked);
+    });
+
+    // 4):
+    document.body.addEventListener('mouseover', (event) => {
+      console.log(`Target: ${event.target.nodeName} - ${event.target.innerHTML}`);
+      console.log(`Current Target: ${event.currentTarget.nodeName}`);
+    });
+
+    // Optional key-logger feature
+    document.body.addEventListener('keydown', (event) => {
+      console.log(`Key pressed: ${event.key}`);
+    });
+
+    /*
+    5):
+    Loading a script from a remote server like http://people.cs.aau.dk/~bnielsen/IWP/test.js can pose security risks, 
+    as the script may contain malicious code that can steal sensitive information or manipulate the page. 
+    If such a script could be "fetch"ed and executed from a script attached to our document, 
+    it could potentially execute arbitrary code on our page, leading to further security vulnerabilities. 
+    Therefore, it is important to only load scripts from trusted sources and to use measures such as Content Security Policy (CSP) 
+    to mitigate the risks of loading external scripts.
+    */
+
+    // 6):
+    let beerTypes = {
+      ales: ["Bitter", "Pale Ale", "Brown Ale", "Trappist", "Porter", "Weizenbier"],
+      lagers: ["Pilsner", "Münchener", "Wiener", "Bock", "Porter"],
+      wilds: ["Gueuze", "Faro", "Fruit"]
+    };
+
+    let beerForm = document.querySelector('#beerForm');
+    let selectAles = '<select id="ales">';
+    for (let i = 0; i < beerTypes.ales.length; i++) {
+      selectAles += '<option value="' + beerTypes.ales[i] + '">' + beerTypes.ales[i] + '</option>';
+    }
+    selectAles += '</select>';
+
+    let selectLagers = '<select id="lagers">';
+    for (let i = 0; i < beerTypes.lagers.length; i++) {
+      selectLagers += '<option value="' + beerTypes.lagers[i] + '">' + beerTypes.lagers[i] + '</option>';
+    }
+    selectLagers += '</select>';
+
+    let selectWilds = '<select id="wilds">';
+    for (let i = 0; i < beerTypes.wilds.length; i++) {
+      selectWilds += '<option value="' + beerTypes.wilds[i] + '">' + beerTypes.wilds[i] + '</option>';
+    }
+    selectWilds += '</select>';
+
+    let selectContainers = '<div id="selectContainers">' + selectAles + selectLagers + selectWilds + '</div>';
+
+    function createSelectMenu(arr, id) {
+      let selectMenu = document.createElement('select');
+      selectMenu.id = id;
+      for (let i = 0; i < arr.length; i++) {
+        let option = document.createElement('option');
+        option.value = arr[i];
+        option.textContent = arr[i];
+        selectMenu.appendChild(option);
+      }
+      return selectMenu;
+    }
+
+    function createBeerTypeSelectMenu(beerTypeArr, beerTypeId) {
+      let selectMenu = createSelectMenu(beerTypeArr, beerTypeId);
+      let container = document.createElement('div');
+      container.appendChild(selectMenu);
+      container.classList.add('hidden');
+      return container;
+    }
+
+    let startButton3 = document.querySelector('#startButton');
+    startButton3.insertAdjacentHTML('afterend', selectContainers);
+
+    function dynamicContainer(){
+      createBeerTypeSelect
+    }
+
+    let alesSelectContainer = createBeerTypeSelectMenu(beerTypes.ales, 'ales');
+    let lagersSelectContainer = createBeerTypeSelectMenu(beerTypes.lagers, 'lagers');
+    let wildsSelectContainer = createBeerTypeSelectMenu(beerTypes.wilds, 'wilds');
+
+    let selectedContainer;
+
+    function updateSelected() {
+      selectedContainer = getSelected();
+      if (selectedContainer) {
+        dynamicSelectContainer.replaceWith(selectedContainer);
+        dynamicSelectContainer = selectedContainer;
+      }
+    }
+
+    function getSelected() {
+      const radioButtons = document.querySelectorAll('input[type="radio"][name="gæringstype"]');
+      radioButtons.forEach(button => {
+        if (button.checked == true){
+          switch(button.value){
+            case 'ales':
+                selectedContainer = alesSelectContainer;
+              break;
+            case 'lagers':
+                selectedContainer = lagersSelectContainer;
+              break;
+            case 'wilds':
+                selectedContainer = wildsSelectContainer;
+              break;
+          }
+        }
+      });
+      return selectedContainer;
+    }
+
+    const radioButtons3 = document.querySelectorAll('input[type="radio"][name="gæringstype"]');
+    radioButtons3.forEach(button => {
+      button.addEventListener('click', updateSelected);
+    });
+
+    dynamicSelectContainer = getSelected();
+    if (dynamicSelectContainer) {
+      startButton3.insertAdjacentElement('afterend', dynamicSelectContainer);
+    } 
+  </script>    
+</body>    
+</html>

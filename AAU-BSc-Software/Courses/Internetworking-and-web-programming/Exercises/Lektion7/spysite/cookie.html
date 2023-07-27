@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visit Counter</title>
+</head>
+<body>
+  <h1 id="visit-counter">You visited the page --- times</h1>
+
+  <script>
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = `expires=${date.toUTCString()}`;
+      document.cookie = `${name}=${value};${expires};path=/`;
+    }
+
+    function getCookie(name) {
+      const searchName = `${name}=`;
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.indexOf(searchName) === 0) {
+          return cookie.substring(searchName.length, cookie.length);
+        }
+      }
+      return "";
+    }
+
+    function updateVisitCounter() {
+      const visitCounterElement = document.getElementById('visit-counter');
+      const visits = parseInt(getCookie('visit')) || 0;
+      visitCounterElement.textContent = `You visited the page ${visits} times`;
+
+      setCookie('visit', visits + 1, 30);
+    }
+
+    updateVisitCounter();
+  </script>
+</body>
+</html>

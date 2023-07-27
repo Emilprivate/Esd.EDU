@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Portfolio</title>
+  <style>
+    body {
+      background-color: #222;
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #0f0;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    nav {
+      display: inline-block;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: #0f0;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+    }
+    .post {
+      border-bottom: 1px solid #0f0;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+    .post:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .post-date {
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    p {
+      line-height: 1.5;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let navLinks = document.querySelectorAll('nav ul li a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('mouseover', function() {
+          link.style.textDecoration = 'line-through';
+        });
+        link.addEventListener('mouseout', function() {
+          link.style.textDecoration = 'none';
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Hacker Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="post">
+      <h2>Project 1</h2>
+      <span class="post-date">March 10, 2023</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque luctus sapien sed elit iaculis, vitae faucibus est consequat. Mauris consequat, nulla vitae ullamcorper vestibulum, orci ligula bibendum turpis, sit amet vestibulum nisl libero eget ante.</p>
+    </div>
+    <div class="post">
+      <h2>Project 2</h2>
+      <span class="post-date">March 5, 2023</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque luctus sapien sed elit iaculis, vitae faucibus est consequat. Nullam eu metus ut enim consectetur dignissim at eget nulla. Sed efficitur, sapien id mollis fringilla, urna orci fermentum dui, et malesuada sem erat at orci. Aenean elementum, nisl sit amet ullamcorper facilisis, libero elit malesuada mi, eget venenatis urna metus eu velit.</p>
+    </div>
+    <div class="post">
+      <h2>Project 3</h2>
+      <span class="post-date">February 28, 2023</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat in nulla nec lobortis. Phasellus imperdiet turpis a ligula tincidunt, vel auctor ex pellentesque. Sed pellentesque, libero sed consequat cursus, dui velit facilisis justo, eu pellentesque libero velit quis ipsum. Vivamus ullamcorper sem id eros pulvinar, vitae scelerisque enim ultricies.</p>
+    </div>
+    <div class="post">
+      <h2>Blog Post 1</h2>
+      <span class="post-date">February 20, 2023</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat scelerisque neque et venenatis. Aliquam ullamcorper ligula nec nisl feugiat, a eleifend metus malesuada. Fusce pharetra tempor velit, et sagittis erat sollicitudin id. Cras ullamcorper, justo at facilisis consequat, mi arcu ullamcorper erat, sit amet sagittis metus augue in sapien.</p>
+    </div>
+</main>
+</body>
+</html>

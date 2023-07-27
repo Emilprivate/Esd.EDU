@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IWP Validation Exercise</title>
+  <meta charset="UTF-8">
+<script>
+function monkeysJump(event) {
+  event.preventDefault()
+  let textmonkeys = document.getElementById("monkeys").value;
+	let output = document.getElementById("message");
+	try {
+		if (isNaN(textmonkeys)) throw "not a number";
+		numbermonkeys = parseInt(textmonkeys)
+		if (numbermonkeys <= 0) throw "at least one monkey please";
+		if (numbermonkeys > 5) throw "too many monkeys";
+
+		output.textContent = "";
+		for (i = numbermonkeys ; i >= 0 ; i--) {
+			output.textContent += `${i} little monkeys are jumping on the bed\r\n`;
+		}
+	} catch (err) {
+		setTimeout(() => {output.textContent = err;}, 2000);
+	}
+}
+</script>
+</head>
+<body>
+    <form id="myForm" >
+        How many little monkeys are jumping on the bed? <input type="text" id="monkeys" value="" >
+    </form>
+    <div id="message" style="white-space: pre;" />
+
+<script>
+document.getElementById("myForm").addEventListener("submit", monkeysJump);
+</script>
+
+</body>

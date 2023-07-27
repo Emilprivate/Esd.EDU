@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ugly Portfolio</title>
+  <style>
+    body {
+      background-color: #f0f;
+      font-family: 'Comic Sans MS', sans-serif;
+      color: #ff0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px #0f0;
+      animation: rainbow 5s linear infinite;
+    }
+    nav {
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: #00f;
+      text-decoration: none;
+      background-color: #f00;
+      padding: 5px;
+    }
+    nav ul li a:hover {
+      color: #0f0;
+      background-color: #000;
+    }
+    main {
+      padding: 20px;
+    }
+    .kermit {
+      display: block;
+      margin: 0 auto;
+      width: 50%;
+      border: 5px dashed #0f0;
+    }
+    @keyframes rainbow {
+      0% { color: #ff0; }
+      14% { color: #0f0; }
+      28% { color: #0ff; }
+      42% { color: #00f; }
+      57% { color: #f0f; }
+      71% { color: #f00; }
+      85% { color: #f90; }
+      100% { color: #ff0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cool Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Stuff</a></li>
+        <li><a href="#">Things</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <img class="kermit" src="https://media.tenor.com/j0kI3rBp0LcAAAAM/kermit-the-frog-hanging.gif" alt="Hanging Kermit the Frog">
+  </main>
+</body>
+</html>

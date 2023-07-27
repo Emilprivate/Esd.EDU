@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <title>IWP Demo</title>
+  <meta charset="UTF-8">
+</head>
+<body> 
+    <form id="beerForm">
+    <fieldset> <legend> Vælg Øl Type: </legend>
+        <input type="radio" name="gæringstype" value="overgæret" checked> Overgæret (Ale)      
+        <input type="radio" name="gæringstype" value="undergæret"> Undergæret (Lager)   
+        <input type="radio" name="gæringstype" value="vildgæret" > Vildtgæret (Lambic) 
+        <input type="button" value="Start" onclick="logRadio()"> 
+        </fieldset>
+    </form>
+    <script>
+        
+        const form = document.querySelector('form');
+        const h1 = document.createElement('h1');
+        h1.textContent = 'Vælg en Øl-type';
+        form.insertAdjacentElement('beforebegin', h1);  
+        
+        function logRadio() {
+            let radioButtons = document.querySelectorAll("input[name=gæringstype]")
+            for (buttons of radioButtons) {
+                console.log(`${buttons.value}: Checked - ${buttons.checked}`)
+            }
+        }
+
+        function logElementInfo(event) {
+        const targetElement = event.target;
+        console.log(`Node Name: ${targetElement.nodeName}`);
+        console.log(`Inner HTML: ${targetElement.innerHTML}`);
+        }
+        document.addEventListener("mouseover", logElementInfo);
+        document.addEventListener("keydown", function(event) {
+            console.log("Key pressed:", event.key)
+        })
+
+        let beerTypes={
+        ales: ["Bitter", "Pale Ale", "Brown Ale", "Trappist", "Porter",  "Weizenbier"],
+        lagers:["Pilsner", "Münchener", "Wiener", "Bock", "Porter"],
+        wilds: ["Gueuze", "Faro", "Fruit"]
+        };
+
+        let menu = document.createElement("select")
+        menu.setAttribute("name", "beer-menu"), menu.setAttribute("id", "beer-select")
+        let button = document.querySelector('input[value=Start]');
+        button.before(menu) 
+        
+        function makeBeerMenu(beers) {
+            let menu = document.createElement("select")
+            menu.setAttribute("name", "beer-menu"), menu.setAttribute("id", "beer-select")
+            
+            let beerChoice = document.querySelector("input[name=gæringstype]:checked")
+            if (beerChoice.value == "overgæret") {
+                for (ale of beers.ales) {
+                let option = document.createElement("option")
+                option.value = `${ale}`
+                option.textContent = `${ale}`
+                menu.add(option)
+            }
+            }
+            if (beerChoice.value == "undergæret") {
+                for (lager of beers.lagers) {
+                let option = document.createElement("option")
+                option.value = `${lager}`
+                option.textContent = `${lager}`
+                menu.add(option)
+                }
+
+            }
+            if (beerChoice.value == "vildgæret") {
+                for (wild of beers.wilds) {
+                let option = document.createElement("option")
+                option.value = `${wild}`
+                option.textContent = `${wild}`
+                menu.add(option)
+                }
+            }
+            
+            let prevmenu = document.querySelector("select");
+            console.log(prevmenu)
+            console.log(menu)
+            prevmenu.replaceWith(menu)
+        }
+
+        makeBeerMenu(beerTypes) 
+
+        let radioButtons = document.querySelectorAll("input[name=gæringstype]")
+        for (buttons of radioButtons) {
+            buttons.addEventListener("click", makeBeerMenu(beerTypes))
+        }
+    </script>    
+</body>   
+</html> 

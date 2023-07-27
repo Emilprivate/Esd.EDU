@@ -1,0 +1,21 @@
+- Fix bug of wall drawing when cell size is changed
+    - It only happens if u switch to the settings submenu while the wall submenu is open.
+
+- Make 'Start Point' functional (high prio)
+    - Spawn position
+    - Spawn button should be locked until this has been placed
+
+- Make 'Exit Point' functional (high prio)
+
+- After 'Exit Point' implementation, make pathfinding functional (high prio)
+
+- Implement barrier options (low prio)
+
+- Change menu style (low prio)
+
+- Custom UI Framework (high prio)
+
+- Add the framework aswell as the prototype (as a crowd crush prevention project) 
+to their own respective repository with descriptions linking to this 
+repository where all the commits and histories can be seen, aswell 
+as the comments and descriptions. (low prio) (at the end)

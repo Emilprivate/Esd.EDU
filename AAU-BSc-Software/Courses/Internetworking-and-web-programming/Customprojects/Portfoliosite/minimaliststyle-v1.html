@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio/Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+        #main {
+            background-color: white;
+            padding: 1rem;
+        }
+        #main h2 {
+            margin-bottom: 1rem;
+        }
+        #portfolio {
+            display: flex;
+            justify-content: space-between;
+        }
+        .project {
+            width: 30%;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            background-color: white;
+        }
+        .project img {
+            width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio/Blog</h1>
+    </header>
+    <section id="main" class="container">
+        <h2>My Projects</h2>
+        <div id="portfolio">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Portfolio/Blog. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectElements = document.querySelectorAll('.project');
+            projectElements.forEach(project => {
+                project.addEventListener('click', () => {
+                    alert('You clicked on a project!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
