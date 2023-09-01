@@ -5,7 +5,7 @@ This folder contains a collection of semester projects & course notes completed 
 # Semester Projects
 ## Semester 0 | 01/09/2022 - 01/10/2022 | Project 0 
 - Problemanalysis & problemstatement
-## Semester 1 | 01/10/2022 - 21/12/2022 | [https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P1)
+## Semester 1 | 01/10/2022 - 21/12/2022 | [Project 1](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P1)
 - Automatic Bargain Hunting
 
 ## License
