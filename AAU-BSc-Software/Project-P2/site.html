@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Crowd Crush Prevention</title>
+    <link rel="stylesheet" type="text/css" href="modules/site.css">
+</head>
+
+<body>
+    <script type="module" src="script.js"></script>
+    <button id="open" style="visibility: visible">Open Menu</button>
+    <div class="menu" style="visibility: hidden;">
+        <div class="menu-handle"></div>
+        <button id="simButton">Start simulation</button>
+        <hr>
+        <button id="agentsButton">Agents</button>
+        <button id="gridsButton">Grid</button>
+        <button id="toggleDisplay" title="Deeper red means higher crowd density">Heatmap: On</button>
+        <button id="toggleSaveSubmenu">Save design</button>
+        <div class="Submenu" id="saveSubmenu" style="display: none; height: fit-content;">
+            <label for="designName">Name</label>
+            <input type="text" id="designName">
+            <button id="saveButton">Save</button>
+            <label id="warningLabel" style="display: none"></label>
+        </div>
+        <button id="toggleLoadSubmenu">Load design</button>
+        <div class="Submenu" id="loadSubmenu" style="display: none">
+            <select id="showDesignsDropdownButton"></select>
+            <button id="loadSelected">Load selected</button>
+            <button id="removeSelected">Remove selected</button>
+        </div>
+        <button id="close">Close Menu</button>
+        <div class="Submenu" id="agentsSubmenu" style="display: none">
+            <label for="numAgents">Number of Agents:</label>
+            <input type="number" id="numAgents" min="1" max="10" value="1">
+        </div>
+        <div class="Submenu" id="gridsSubmenu" style="display: none">
+            <button id="addSpawn" title="Hold to draw">Add Entrance</button>
+            <button id="addExit">Add Exit</button>
+            <button id="clear">Clear</button>
+            <div class="slider">
+                <label id="setCellSize">Set Cell Size</label>
+                <label id="sizeDisplay">25</label>
+                <input type="range" id="cellSlider" value="25" min="10" max="75">
+            </div>
+        </div>
+        <div class="menu-infobox">
+            
+            <div class="infobox-item">
+                <img src="resources/infopanel_crowd.png" alt="Crowd Icon">
+                <p id="agentCount"></p>
+            </div>
+            <div class="infobox-item">
+                <img src="resources/infopanel_framerate.png" alt="Framerate Icon">
+                <p id="framerateCount"></p>
+            </div>
+        </div>
+    </div>  
+    <div class="container">
+        <svg class="drawing"></svg>
+    </div>
+</body>
+</html>

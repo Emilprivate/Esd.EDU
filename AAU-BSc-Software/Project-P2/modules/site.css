@@ -1,0 +1,237 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(255, 5, 251);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.heatCells {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.drawing {
+    background-color: #eee;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+#open {
+    flex-direction: column;
+    width: 100px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    z-index: 2;
+}
+
+.menu {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: fit-content;
+    height: fit-content;
+    user-select: none;
+
+    /* updated background color and box shadow */
+    background-color: rgb(47, 47, 47);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
+    position: absolute;
+    z-index: 10;
+}
+
+.menu hr {
+    width: 80%;
+    /* Customize the width of the separator */
+    margin: 5px auto;
+    /* Add some margin around the separator */
+    border: 1px solid #636363;
+    /* Set the color and thickness of the separator */
+}
+
+.menu button {
+    margin: 5px;
+    opacity: 10;
+    border-radius: 5px;
+}
+
+.menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.menu h2 {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.0);
+    padding: 0 10px;
+}
+
+button {
+    background-color: #3c3d3c;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 4px;
+    width: 150px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+
+button:hover {
+    background-color: #9f9f9f;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(1);
+    background-color: #454545;
+}
+
+.Submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.Submenu input {
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.Submenu label {
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.Submenu select {
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.menu-handle {
+    cursor: grab;
+    width: 80px;
+    height: 20px;
+    background-color: #3c3d3c;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 8px;
+}
+
+#colorPicker {
+    margin-bottom: 5px;
+  } 
+  
+.menu-infobox {
+    position: absolute;
+    top: 105%;
+    left: 0%;
+    width: 90%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
+    z-index: 11;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.infobox-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infobox-item img {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 5px;
+    filter: invert(1);
+}
+
+.menu-infobox p {
+    font-size: 14px;
+    margin: 0;
+}
+
+  
+
+/* TODO : design for label with id sizeDisplay*/
+/*#sizeDisplay {
+    white-space: nowrap;
+}*/
