@@ -9,6 +9,7 @@ This folder contains a collection of semester projects & course notes completed 
 - Automatic Bargain Hunting
 ## Semester 2 | Feb 2023 - May 2023 | [Project 2](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P2)
 - Crowd Crush Prevention
+## Semester 3 | Sep 2023 - Dec 2023 | [Project 3](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P3)
 
 ## License
 
