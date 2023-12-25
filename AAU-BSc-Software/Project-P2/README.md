@@ -19,6 +19,9 @@ This research project, created by Group cs-23-SW-2-15 at Aalborg University (AAU
 - **Programming Language:** Vanilla JavaScript.
 - **Server-side Functionality:** This allows for saving and loading of user-created simulation layouts.
 
+## Demo
+[Click here to see a demonstration on youtube](https://www.youtube.com/watch?v=WJFB8MUJqlU)
+
 ## Usage
 To run this node app:
 ```
