@@ -15,9 +15,9 @@ This research project, created by Group cs-23-SW-2-15 at Aalborg University (AAU
 **Collision Detection:** A built-in mechanism prevents agents from colliding, ensuring more realistic crowd movement.
 
 ## Technical Details
-**Development Environment:** Visual Studio Code.
-**Programming Language:** Vanilla JavaScript.
-**Server-side Functionality:** This allows for saving and loading of user-created simulation layouts.
+- **Development Environment:** Visual Studio Code.
+- **Programming Language:** Vanilla JavaScript.
+- **Server-side Functionality:** This allows for saving and loading of user-created simulation layouts.
 
 ## Usage
 To run this node app:
