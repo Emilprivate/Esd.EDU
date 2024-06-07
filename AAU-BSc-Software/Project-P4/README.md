@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project, developed by a team at Aalborg University, introduces the "TinyCell" compiler. The primary goal of this project is to translate a custom syntax, designed using ANTLR, into Arduino C for deployment on Arduino boards. The integration of the Arduino CLI streamlines the compilation and flashing processes, making it easier to work with Arduino hardware.
+This project, developed by a team and I at Aalborg University, introduces the "TinyCell" compiler. The primary goal of this project is to translate a custom syntax, designed using ANTLR, into Arduino C for deployment on Arduino boards. The integration of the Arduino CLI streamlines the compilation and flashing processes, making it easier to work with Arduino hardware.
 
 ## Key Features
 
