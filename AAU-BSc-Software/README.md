@@ -16,7 +16,7 @@ All projects can also be found in my university group organization [SoftwareGrou
 
 ## Semester 2 | Feb 2023 - Jun 2023 | [Project 2](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P2)
 
-- Crowd Crush Prevention
+- Crowd Crush Prevention Simulation
 
 ## Semester 3 | Sep 2023 - Feb 2024 | [Project 3](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P3)
 
