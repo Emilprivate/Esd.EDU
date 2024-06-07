@@ -18,7 +18,7 @@ All projects can also be found in my university group organization [SoftwareGrou
 
 - Crowd Crush Prevention
 
-## Semester 3 | Sep 2023 - Feb 2023 | [Project 3](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P3)
+## Semester 3 | Sep 2023 - Feb 2024 | [Project 3](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P3)
 
 - .NET Core Solution for Event Management Company
 
