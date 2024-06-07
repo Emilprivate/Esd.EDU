@@ -4,7 +4,7 @@ This folder contains a collection of semester projects & course notes completed 
 
 # Semester Projects
 
-All projects can also be found in my university group organization [SoftwareMoggers-AAU](https://github.com/orgs/SoftwareMoggers-AAU/repositories)
+All projects can also be found in my university group organization [SoftwareGroup305-AAU](<[https://github.com/orgs/SoftwareMoggers-AAU/repositories](https://github.com/SoftwareGroup305-AAU/P4)>)
 
 ## Semester 0 | Sep 2022 - Oct 2022 | Project 0
 
