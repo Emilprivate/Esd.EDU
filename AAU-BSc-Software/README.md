@@ -20,7 +20,7 @@ All projects can also be found in my university group organization [SoftwareGrou
 
 ## Semester 3 | Sep 2023 - Feb 2024 | [Project 3](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P3)
 
-- .NET Core Solution for Event Management Company
+- .NET Core Solution for an Event Management Company
 
 ## Semester 4 | Feb 2024 - Jun 2024 | [Project 4](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
 
