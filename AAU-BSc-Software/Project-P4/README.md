@@ -42,5 +42,3 @@ To use the TinyCell compiler, follow these steps:
 - Expansion of the testing suite to cover additional edge cases and scenarios.
 - Development of a graphical user interface (GUI) to improve user interaction with the compiler.
 - Integration of support for additional microcontroller platforms beyond Arduino.
-
-By leveraging the capabilities of ANTLR, Arduino CLI, and extensive testing, the TinyCell compiler aims to provide a robust and efficient tool for developers working with Arduino hardware.
