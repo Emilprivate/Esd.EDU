@@ -22,7 +22,7 @@ This project, developed by a team and I at Aalborg University, introduces the "T
 
 ## Technical Details
 
-- **Development Environment:** Visual Studio.
+- **Development Environment:** Visual Studio Code.
 - **Programming Languages and Tools:** C#, ANTLR, xUnit, Arduino CLI.
 
 ## Usage
