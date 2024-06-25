@@ -40,5 +40,4 @@ To use the TinyCell compiler, follow these steps:
 
 - Enhancement of the lexer and parser for more complex syntax support.
 - Expansion of the testing suite to cover additional edge cases and scenarios.
-- Development of a graphical user interface (GUI) to improve user interaction with the compiler.
 - Integration of support for additional microcontroller platforms beyond Arduino.
