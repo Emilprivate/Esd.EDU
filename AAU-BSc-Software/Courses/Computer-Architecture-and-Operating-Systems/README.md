@@ -1,7 +1,5 @@
 # Computer Architecture and Operating Systems
 
-# Exam preparation
-
 # Textbook assignments
 
 ## Lecture 1 | Overblik & info & bits
