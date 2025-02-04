@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QPEXTSqiegOsel+f4ENhn1fAC16GlPmGtU4COBzGAD8gmJ/+kb1SHCgC+PRTXTmlzErHt36fERC2RV0jWmpRNA==",
+  "success": true,
+  "projectFilePath": "/home/esd/Gitclones/Esd.EDU/AAU-BSc-Software/Project-P4/P4.TinyCell/P4.TinyCell.csproj",
+  "expectedPackageFiles": [
+    "/home/esd/.nuget/packages/antlr4.runtime.standard/4.13.1/antlr4.runtime.standard.4.13.1.nupkg.sha512",
+    "/home/esd/.nuget/packages/sharpziplib/1.3.3/sharpziplib.1.3.3.nupkg.sha512",
+    "/home/esd/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.8/microsoft.aspnetcore.app.ref.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
