@@ -24,6 +24,9 @@ All projects can also be found in my university group organization [SoftwareGrou
 
 ## Semester 4 | Feb 2024 - Jun 2024 | [Project 4](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
 
+- Visual Tangible Artefacts - Communication platform for autistic children
+
+## Semester 5 | Sep 2024 - Dec 2024 | [Project 5](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
 - Compiler for "TinyCell" Language to Arduino C
 
 ## License
