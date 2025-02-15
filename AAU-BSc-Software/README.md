@@ -1,5 +1,6 @@
 # Aalborg University Bachelor of Science in Software Engineering
 
+## Overview
 This folder contains a collection of semester projects & course notes completed by fellow students and I from Aalborg University, while pursuing our degree in Software Engineering. Each project folder includes a detailed description of the project and other relevant information. The projects contained within this folder represent the diverse range of software engineering disciplines and techniques studied during the course of the degree.
 
 # Semester Projects
