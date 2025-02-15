@@ -1,6 +1,5 @@
 # Project-P3: .NET Core Solution for Event Management Company
 
-## Overview
 Developed by a team at Aalborg University, this project presents a comprehensive solution for an event management company, aiming to connect Microsoft Dynamics 365 professionals with businesses. Utilizing a blend of .NET Core, Blazor, Razor, and MAUI technologies, the project addresses the critical need for streamlined event management processes and enhanced user experience in learning new Microsoft 365 technologies.
 
 ## Key Contributions
