@@ -1,5 +1,6 @@
 # Project-P2: Crowd Crush Prevention
 
+## Overview
 This research project, created by Group cs-23-SW-2-15 at Aalborg University (AAU), focuses on the simulation of crowd crush scenarios. Using vanilla JavaScript and a custom-built flow field algorithm, the project provides a grid-based framework for users to create, save, and load various simulation layouts. The purpose of this work is to raise awareness and demonstrate the consequences of uncontrolled crowd movements in constrained spaces.
 
 **Disclaimer:** The group is not liable for any damages to property, injuries to people, or deaths related to any inaccuracies of this project.
