@@ -1,4 +1,4 @@
-# Project-P1
+# Project-P1: Automatic Bargain Hunting
 
 This is a **first-semester** project made by a group and I at Aalborg University. The aim of the project is to develop a software application in the C programming language that facilitates automatic bargain hunting. The application will allow users to input a shopping list and search for the lowest total price of the items on the list at nearby stores. It uses simulated/custom data for demonstration purposes.
 
