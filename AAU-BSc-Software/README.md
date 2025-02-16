@@ -1,5 +1,6 @@
 # Aalborg University Bachelor of Science in Software Engineering
 
+## Overview
 This folder contains a collection of semester projects & course notes completed by fellow students and I from Aalborg University, while pursuing our degree in Software Engineering. Each project folder includes a detailed description of the project and other relevant information. The projects contained within this folder represent the diverse range of software engineering disciplines and techniques studied during the course of the degree.
 
 # Semester Projects
@@ -23,11 +24,10 @@ All projects can also be found in my university group organization [SoftwareGrou
 - .NET Core Solution for an Event Management Company
 
 ## Semester 4 | Feb 2024 - Jun 2024 | [Project 4](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
-
-- Visual Tangible Artefacts - Communication platform for autistic children
+- Compiler for "TinyCell" Language to Arduino C
 
 ## Semester 5 | Sep 2024 - Dec 2024 | [Project 5](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
-- Compiler for "TinyCell" Language to Arduino C
+- Visual Tangible Artefacts - Communication platform for autistic children
 
 ## License
 
