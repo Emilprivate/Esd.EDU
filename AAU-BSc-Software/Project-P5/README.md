@@ -1,4 +1,4 @@
-# Project-P5 - Visual Tangible Artefacts
+# Project-P5: Visual Tangible Artefacts
 
 ## Overview
 Graphical Interface Resource for Autistic Folks (GIRAF) is a set of graphical interfaces developed with the intent to assist non-verbal autistic children in communicating in various ways. GIRAF is an ongoing project and has been in development since 2013. It currently consists of a Foodplanner and a Weekplanner. To further assist non-verbal autistic children in daily communication, a new interface, Visual Tangible Artefacts (VTA), was developed.
