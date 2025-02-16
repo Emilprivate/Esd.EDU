@@ -1,0 +1,49 @@
+name: vta_app
+description: "A new Flutter project."
+
+# Prevent accidental publishing to pub.dev.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter_svg: ^2.0.10+1
+  jwt_decoder: ^2.0.1
+  shared_preferences: ^2.3.2
+  http: ^1.2.2
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  global_configuration: ^2.0.0
+  file_picker: ^8.1.3
+  provider: ^6.1.2
+  cross_file: ^0.3.4+2
+  camera: ^0.11.0+2
+  path_provider: ^2.1.5
+  path: ^1.9.0
+  just_audio: ^0.9.42 # Replaced audioplayers
+  flutter_settings_screens: ^0.3.4
+  get_it: ^8.0.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    # Add assets from the images directory to the application.
+    - assets/images/
+    - assets/icons/
+    - assets/sound/
+    - assets/cfg/
+    - assets/sound/
