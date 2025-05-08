@@ -26,8 +26,11 @@ All projects can also be found in my university group organization [SoftwareGrou
 ## Semester 4 | Feb 2024 - Jun 2024 | [Project 4](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
 - Compiler for "TinyCell" Language to Arduino C
 
-## Semester 5 | Sep 2024 - Dec 2024 | [Project 5](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P4)
+## Semester 5 | Sep 2024 - Dec 2024 | [Project 5](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P5)
 - Visual Tangible Artefacts - Communication platform for autistic children
+
+## Semester 6 | Feb 2025 - Jun 2025 | [Project 6](https://github.com/Emilprivate/Esd.EDU/tree/main/AAU-BSc-Software/Project-P6)
+- Self Controlled Aerial Navigation (SCAN) - Drone Aerial Navigation & Person detection platform for SAR operations 
 
 ## License
 
