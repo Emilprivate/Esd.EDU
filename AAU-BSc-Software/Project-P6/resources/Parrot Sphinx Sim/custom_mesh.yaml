@@ -1,0 +1,7 @@
+Meshes:
+  - Name: 'TestHuman'
+    FbxPath: "/home/emilog/Desktop/test-human.fbx"
+    Location: "200 0 80"
+    Rotation: "-90 0 0"
+    Scale: "1 1 1"
+    SnapToGround: false

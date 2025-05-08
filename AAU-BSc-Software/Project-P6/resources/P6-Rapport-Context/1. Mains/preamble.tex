@@ -1,0 +1,104 @@
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+
+\usepackage{geometry}
+\geometry{margin=1.4in}
+\newcommand{\timelineFormat}{\hspace{-2.3pt}$\bullet$ \hspace{5pt}}
+\setlength\parindent{0pt}
+\setlength{\parskip}{0.4cm}
+
+\usepackage{pdfpages}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{xspace}
+\usepackage{lipsum}
+
+% ¤¤ Navngivning ¤¤ %
+\addto\captionsdanish{
+    \renewcommand\contentsname{Table of Contents}
+}
+
+%Initializing packages
+\usepackage{adjustbox}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+\usepackage{eurosym}
+\usepackage{forest}
+\usepackage{lscape}
+\usetikzlibrary{arrows.meta}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{tikz-qtree}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\usepackage[toc,page]{appendix}
+\usepackage{array}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage{enumitem}
+\usepackage{acronym}
+
+% Ekstra pakker
+\usepackage{tikz}
+\usepackage{placeins}
+\usepackage{tikzpagenodes}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{background} % For AAU wave background
+\usepackage{geometry} % For margin adjustments
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{booktabs} % Professional tables
+\usepackage{multirow} % Complex table layouts
+\usepackage{siunitx} % Proper unit formatting
+\usepackage[labelfont=bf]{caption} % Bold captions
+\sisetup{per-mode=symbol} % SI unit spacing
+\definecolor{aaublue}{RGB}{33,26,82}
+\geometry{a4paper} % AAU template assumes A4
+
+\backgroundsetup{contents={}}
+
+\setcounter{tocdepth}{1}
+
+% Tilføjelse af mellemrum mellem "Kapitel" og kapitelnummer i sidehoved med titlesec
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter\hspace{1em}} % Tilføjer mellemrum mellem "Kapitel" og kapitelnummer
+  {10pt}
+  {\Huge}
+
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\setcounter{tocdepth}{3}  % Inkluderer subsections i indholdfortegnelsen.
+
+\usepackage[numbers]{natbib}
+
+\usepackage{caption}
+\usepackage{float}
+\usepackage{colortbl}  % Pakken til farver i tabeller
+
+\usepackage{hyperref}      % Gør links klikbare og understøtter URL
+\hypersetup{
+    colorlinks=true,       % Gør links farvede
+    linkcolor=blue,       % Farve for interne links
+    citecolor=blue,       % Farve for citations
+    urlcolor=blue,        % Farve for URL'er
+    hidelinks              % Skjuler bokse omkring links
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drone Stream</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .stream-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #stream-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .status-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 5;
+        }
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="stream-container">
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+        
+        <!-- Stream image -->
+        <img id="stream-img" src="/api/streaming/simple-feed" alt="Drone Camera Feed" style="display: none;">
+        
+        <!-- Status message -->
+        <div id="status" class="status-message" style="display: none;"></div>
+    </div>
+
+    <script>
+        const streamImg = document.getElementById('stream-img');
+        const statusElement = document.getElementById('status');
+        const loadingElement = document.getElementById('loading');
+        let retryCount = 0;
+        const maxRetries = 5;
+        
+        // Log stream status for debugging
+        console.log("Stream page loaded, attempting to connect to feed");
+        
+        // Show error message
+        function showError(message) {
+            console.error("Stream error:", message);
+            statusElement.innerText = message;
+            statusElement.style.display = 'block';
+            loadingElement.style.display = 'none';
+        }
+        
+        // Hide error message
+        function hideError() {
+            statusElement.style.display = 'none';
+        }
+        
+        // Handle image load success
+        streamImg.onload = function() {
+            console.log("Stream image loaded successfully");
+            hideError();
+            streamImg.style.display = 'block';
+            loadingElement.style.display = 'none';
+            retryCount = 0;
+            
+            // Notify parent that stream started successfully
+            if (window.parent) {
+                window.parent.postMessage({ type: 'STREAM_STARTED' }, '*');
+                console.log("Sent STREAM_STARTED message to parent");
+            }
+        };
+        
+        // Handle image load error
+        streamImg.onerror = function() {
+            console.error("Stream image failed to load, attempt:", retryCount + 1);
+            retryCount++;
+            if (retryCount <= maxRetries) {
+                showError(`Connection error. Retrying... (${retryCount}/${maxRetries})`);
+                
+                // Add timestamp to prevent caching
+                setTimeout(() => {
+                    console.log("Retrying stream connection...");
+                    streamImg.src = '/api/streaming/simple-feed?' + new Date().getTime();
+                }, 1000);
+            } else {
+                showError('Failed to connect to stream. Please restart.');
+                // Notify parent that stream has error
+                if (window.parent) {
+                    window.parent.postMessage({ type: 'STREAM_ERROR' }, '*');
+                    console.log("Sent STREAM_ERROR message to parent");
+                }
+            }
+        };
+        
+        // Set up a heartbeat check to make sure the stream is still working
+        let lastImageUpdate = Date.now();
+        streamImg.addEventListener('load', () => {
+            lastImageUpdate = Date.now();
+        });
+        
+        // Check every 5 seconds if the stream is still updating
+        setInterval(() => {
+            const now = Date.now();
+            if (now - lastImageUpdate > 10000) { // No update for 10 seconds
+                console.warn("Stream appears frozen, reloading...");
+                streamImg.src = '/api/streaming/simple-feed?' + now; 
+            }
+        }, 5000);
+        
+        // Initial load - add timestamp to ensure fresh content
+        streamImg.src = '/api/streaming/simple-feed?' + Date.now();
+    </script>
+</body>
+</html>

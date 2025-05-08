@@ -1,0 +1,68 @@
+----- Kildehenvisninger ------
+
+%Kilde udenfor kategori
+@misc{Key,
+  author       = {Forfatterens navn},
+  title        = {Titel},
+  howpublished = {Beskrivelse af udgivelse fx hjemmeside},
+  year         = {År},
+  link         = {},
+  note         = {Besøgt DD-MM-ÅR},
+}
+
+
+%Artikel, fysisk eller online (Må ikke kunne redigeres, ellers brug misc)
+@article{label,
+  author  = {Forfatterens navn},
+  title   = {Artikelens titel},
+  journal = {Tidsskriftets navn},
+  year    = {År},
+  volume  = {Bind/volumen, hvis relevant},
+  number  = {Nummer/udgave, hvis relevant},
+  pages   = {Sidetal, hvis relevant},
+}
+
+%Bog
+@book{Key,
+  author    = {Forfatterens navn},
+  title     = {Bogens titel},
+  publisher = {Forlag},
+  year      = {År},
+  edition   = {Udgave, hvis relevant},
+  volume    = {Bind, hvis relevant},
+  series    = {Serie, hvis relevant},
+}
+
+%Udvalgt kapitel/afsnit af bog
+@inbook{label,
+  author       = {Forfatterens navn},
+  title        = {Bogens titel},
+  chapter      = {Kapitel nummer eller titel},
+  publisher    = {Forlag},
+  year         = {År},
+  edition      = {Udgave, hvis relevant},
+  volume       = {Bind, hvis relevant},
+  series       = {Serie, hvis relevant},
+  pages        = {Sidetal, hvis relevant},
+}
+
+
+%Rapport
+@techreport{label,
+  author      = {Forfatterens navn},
+  title       = {Titel på rapporten},
+  institution = {Institutionens navn},
+  year        = {År},
+  number      = {Rapportnummer, hvis relevant},
+}
+
+---- Billeder ----
+
+\begin{figure}[H] %Altid stort H for korrekt placering
+    \centering
+    \includegraphics[width=1\linewidth]{Vælg Billede}
+    \captionsetup{font=footnotesize}
+    \caption{}
+    \label{fig: Navngiv figur til brug af henvisning}
+\end{figure}
+

@@ -1,0 +1,49 @@
+\documentclass[oneside]{report}
+
+\input{1. Mains/preamble}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}} 
+\fancyfoot[C]{\thepage} 
+\renewcommand{\chaptermark}[1]{\markboth{Kapitel \thechapter\hspace{1em}#1}{}}
+
+\begin{document}
+
+\titleformat{\chapter}[display]
+    {\bfseries\Huge}{\Large\filleft\MakeUppercase\thechapter}
+    {0.5ex}
+    {\titlerule}
+    [\vspace{1ex}\titlerule]
+    \titlespacing*{\chapter}{0pt}{-50pt}{32pt}
+
+\pagenumbering{roman}
+
+\input{2. Formality/Frontpage}
+\input{2. Formality/Copyright}
+\input{2. Formality/Title-page}
+\chapter*{Preface}
+    \input{3. Content/1. Preface}
+            
+\input{2. Formality/Signatures}
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+
+\input{3. Content/2. Introduction}
+\input{3. Content/3. Problem Analysis}
+\input{3. Content/4. Problem Statement}
+\input{3. Content/5. Requirement Specification}
+\input{3. Content/6. System Design}
+\input{3. Content/7. System Implementation}
+\input{3. Content/8. Testing}
+\input{3. Content/9. Discussion}
+\input{3. Content/10. Conclusion}
+
+\bibliographystyle{plain}
+\bibliography{Bibliography}
+
+
+\end{document}

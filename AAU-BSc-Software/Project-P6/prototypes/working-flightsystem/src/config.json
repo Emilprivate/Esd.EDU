@@ -1,0 +1,8 @@
+{
+    "dev-direct-drone-connection": true,
+    "drone": {
+        "droneIP": "192.168.42.1",
+        "skyControllerIP": "192.168.53.1"
+    },
+    "apiUrl": "http://localhost:5000/api"
+}

@@ -1,0 +1,350 @@
+\chapter{Problem Analysis}
+
+\section{Software Framework Evaluation}
+% Analysis of why we chose to work with SDK's over the other options.
+The selection of a software framework for the SCAN project involved considering multiple different approaches to drone control, the development process, and the limitations of the project resources. 
+
+\subsection{Available Options}
+The project team considered the following approaches:
+
+\begin{itemize}
+    \item Building a custom drone
+    \item Custom firmware development
+    \item Open-source flight control software
+    \item Manufacturer-provided SDKs
+\end{itemize}
+
+Each option was evaluated on the basis of the project's requirements and constraints.
+
+\subsection{Building a Custom Drone}
+The option of building a custom drone from scratch was initially considered. This approach would involve the following.
+
+\begin{itemize}
+    \item Selecting and assembling hardware components (frame, motors, flight controller, etc.)
+    \item Building a fundamental frame by hand or 3D printed for all the components.
+    \item Configuring the flight controller.
+    \item Developing custom software for drone control
+\end{itemize}
+
+This process would require a high initial cost for components and an unreasonable time investment for assembly and configuration. It would also necessitate some more specialized knowledge in electronics and drone mechanics, which falls outside the project's primary scope and focus on software engineering. 
+
+\subsection{Custom Firmware Development}
+Custom firmware development involves writing low-level code to directly control drone hardware. This approach is as follows.
+
+\begin{itemize}
+    \item More flexibility in terms of drone behavior
+    \item Full control over all aspects of the drone's operation
+\end{itemize}
+
+The primary disadvantage of firmware development for the project team is the lack of experience developing software at this level, which consequentially would narrow down the scope even further due to the resource limitations, specifically in terms of time. The majority of the time spent on the project would be on understanding the development of the firmware and low-level interactions with the hardware.
+
+\subsection{Open-Source Flight Control Software}
+Open-source options such as ArduPilot and PX4 were evaluated. These frameworks offer the following.
+
+\begin{itemize}
+    \item Many customization options
+    \item Large community support
+    \item Compatibility with various drone hardware
+\end{itemize}
+
+Similarly, the primary disadvantage of open source flight control systems is the lack of experience in the project team. In addition to having a steep learning curve as suggested by multiple sources\cite{mdpi_px4_survey,oscarliang_ardupilot,bluefalcon_sdk}, there is also more limited official support compared to manufacturer SDKs, which in terms of risk management would be a poor decision to make.
+
+\subsection{Manufacturer-Provided SDKs}
+
+The evaluation of manufacturer-provided SDKs focused on the Parrot Olympe SDK and DJI's SDKs, as these matched the drone platforms supplied by the university for the project. Two main options were considered: the Parrot Olympe SDK and DJI's SDK. The Parrot Olympe SDK, compatible with the Parrot ANAFI drone, offers a Python-based API for flight control, camera operation, and access to telemetry data such as coordinates and temperature~\cite{ParrotSDKDoc}. Parrot also provides several other SDKs, including GroundSDK for mobile application development, AirSDK for onboard programming, Sphinx for simulation, and PDrAW for video streaming.
+
+DJI offers a range of SDKs as well, including the Mobile SDK for Android and iOS, the Windows SDK for web applications, the Onboard SDK for direct integration with flight controllers, and the Payload SDK for external sensor or payload integration~\cite{DJIDocumentation}. These SDKs provide access to flight control, telemetry, camera, gimbal, and obstacle avoidance features.
+
+Key considerations in selecting an SDK included access to telemetry data (such as GPS) and camera functionality for object recognition, as well as the ability to run the SDKs on the team's development machines. A notable limitation was that Parrot Olympe only runs on Ubuntu Linux, and using it on ARM64 (such as Apple Silicon MacBooks) requires containerizing Ubuntu and compiling Parrot Olympe manually, which could introduce compatibility issues for team members using macOS.
+
+\section{Drone Selection Process}
+% Analysis of the required hardware for the drone, the different drones we tested etc.
+In selecting a drone for an academic project, the team identified several requirements. These included an SDK for remote control, GPS for autonomous flight coordination, and a quality camera for area mapping and image recognition.
+
+Research pointed to Parrot as a good option, with drones featuring fully customizable SDKs meeting all criteria. This discovery was initially met with optimism. However, due to equipment limitations, the project team was first provided with the DJI Mini Pro 3 drone.
+
+The DJI Mini Pro 3 is a high-end drone that appeared to meet project requirements with its features, including a good SDK, premium camera, and GPS. Yet during testing, the team found that the stock controller was locked down, preventing custom programming. This made the DJI Mini Pro 3 unsuitable for the project.
+
+After this setback, the equipment team acquired a Parrot ANAFI drone. This model proved to be an excellent match for the project and satisfied all requirements. The Parrot ANAFI offers flexible control options, allowing operation through either the included controller or by connecting to the drone's system via a smartphone.
+
+A major advantage of the Parrot ANAFI is its compatibility with the "Olympe" SDK from Parrot. This SDK allows custom scripts to run on the drone by connecting from a PC. Testing confirmed that the Parrot ANAFI was indeed the right choice, meeting all project requirements and providing the flexibility to implement the desired search pattern algorithm and other custom functions.
+
+The selection of the Parrot ANAFI represents progress in the project, giving the team the tools needed to develop autonomous flight and area mapping capabilities. This choice enables further advances in academic research, potentially leading to applications in search and rescue or environmental monitoring.
+
+\section{Communication Architecture}
+Effective drone operations are critically dependent on reliable communication between the aerial vehicle and ground control systems. Communication architectures for unmanned aerial systems must address fundamental challenges including transmission reliability, bandwidth management, range limitations, and resilience to interference \cite{Sharma2017}. These factors directly impact system capabilities, operational safety, and mission effectiveness, particularly in search and rescue applications where real-time control and data transmission are essential \cite{Erdelj2017}.
+
+\subsection{General Communication Challenges in Drone Systems}
+
+Drone communication systems face unique challenges distinct from traditional networked applications:
+
+\begin{itemize}
+    \item \textbf{Three-dimensional mobility}: As drones move through space, connection quality typically varies with distance, orientation, and obstacles \cite{Zeng2016}
+    \item \textbf{Bandwidth constraints}: Multiple data streams (control commands, telemetry, and video) must share limited wireless bandwidth \cite{Hayat2016}
+    \item \textbf{Safety-critical nature}: Unlike with consumer applications, communication failures can result in physical damage or loss \cite{Koubaa2019}
+    \item \textbf{Electromagnetic interference}: Drones operate in varying electromagnetic environments that can impact signal integrity \cite{Fotouhi2019}
+    \item \textbf{Regulatory restrictions}: Communication systems must comply with regional frequency regulations and power limitations \cite{Gupta2016}
+\end{itemize}
+
+Any drone communication architecture must address these fundamental challenges through appropriate protocols, hardware configurations, and software management strategies.
+
+\subsection{Parrot ANAFI Communication Infrastructure}
+
+For the SCAN project, the selected Parrot ANAFI platform implements a specific communication architecture. According to manufacturer specifications, the ANAFI uses a Wi-Fi-based communication system with the following characteristics:
+
+\begin{itemize}
+    \item Creates an on-board Wi-Fi access point (2.4GHz or 5GHz bands) \cite{ParrotANAFISpec}
+    \item Utilizes proprietary protocols built on standard TCP/IP and UDP connections \cite{ParrotSDKDoc}
+    \item Supports a theoretical range of up to 4 km under optimal conditions \cite{ParrotANAFISpec}
+    \item Implements automatic frequency band selection to minimize interference \cite{ParrotSDKDoc}
+    \item Employs dynamic signal strength management to maintain connection stability \cite{ParrotSDKArch}
+\end{itemize}
+
+The reliance on Wi-Fi technology represents a specific implementation approach to addressing the general communication challenges. While enabling straightforward connectivity and sufficient bandwidth for control and video transmission, Wi-Fi is susceptible to interference in crowded RF environments and has inherent range limitations compared to dedicated long-range communication systems \cite{Yanmaz2018}.
+
+\subsection{Olympe SDK Communication Model}
+
+The Olympe SDK provides an abstraction layer for communicating with the ANAFI drone through a structured API \cite{ParrotOlympeDoc}. This software architecture shapes how applications can interact with the drone's communication systems:
+
+\begin{itemize}
+    \item Implements Python-based command structures that are translated into the drone's proprietary protocol
+    \item Manages the connection establishment and maintenance automatically
+    \item Provides event-driven callbacks for asynchronous status updates and telemetry
+    \item Handles media streaming through dedicated protocol handlers
+    \item Offers automatic reconnection capabilities during temporary signal loss
+\end{itemize}
+
+Through analysis of the SDK documentation \cite{ParrotOlympeDoc}, it can be determined that Olympe uses multiple communication channels with different protocols:
+
+\begin{table}[h]
+\centering
+\caption{ANAFI Communication Channels}
+\label{tab:anafi_channels}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Channel} \& \textbf{Protocol} \& \textbf{Purpose} \& \textbf{Characteristics} \\
+\midrule
+Command \& TCP \& Flight control \& Reliable, prioritized transmission \\
+Status \& UDP \& Telemetry data \& Frequent, small payloads \\
+Video \& RTP/RTSP \& Live video feed \& High bandwidth, tolerates packet loss \\
+Media \& TCP \& File transfer \& Used for retrieving saved media \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This multichannel approach represents a common design pattern in drone communication architectures \cite{Chmaj2015}, where different requirements for reliability, latency, and throughput are addressed through specialized protocols.
+
+\subsection{Technical Limitations and Theoretical Constraints}
+
+Based on technical documentation and manufacturer specifications, the communication architecture of the Parrot ANAFI presents several technical constraints that influence potential system designs:
+
+\begin{itemize}
+    \item High connection latency \cite{Chanana2024}
+    \item The Wi-Fi connection is theoretically sensitive to physical obstacles such as dense vegetation and buildings \cite{Genc2017}
+    \item Battery consumption increases with transmission power at greater distances, potentially reducing flight time \cite{Zeng2016}
+    \item Maximum operational range is limited by Wi-Fi technology constraints and regulatory requirements \cite{ParrotANAFISpec}
+\end{itemize}
+
+According to manufacturer documentation, the system is designed to prioritize control commands when connection quality deteriorates, potentially sacrificing video quality to maintain operational control. This prioritization approach aligns with safety-first design principles documented in other drone systems \cite{Koubaa2019}.
+
+The communication architecture must be carefully considered when designing systems for aerial surveying applications like SCAN, particularly given the critical requirements for maintaining control during surveys and ensuring sufficient video quality for effective detection of objects or persons.
+% Analysis of challenges for establishing reliable communication between the drone and the rest of the system
+
+\section{Path Planning Algorithms}
+
+Path planning algorithms form the foundation of autonomous drone systems. These algorithms calculate flight trajectories that satisfy mission objectives such as minimizing flight distance, ensuring complete coverage, or maximizing energy efficiency. In drone surveying applications, path planning translates high-level mission goals into executable flight paths while accounting for constraints including camera specifications, environmental conditions, and operational limitations.
+
+Drone path planning algorithms can be categorized into four main types according to numerous research studies~\cite{cabreira2019survey,MathworksUAV}:
+\begin{enumerate}
+    \item \textbf{Point-to-point planning:} Calculates paths between specific locations while optimizing factors such as distance, time, or energy consumption. These methods typically employ sampling-based algorithms, graph search techniques, or potential field approaches to navigate from starting points to destinations.
+    \item \textbf{Coverage path planning (CPP):} Generates paths that ensure complete coverage of defined areas. This approach is fundamental for surveying, mapping, and inspection missions where capturing data from an entire region is required.
+    \item \textbf{Dynamic path planning:} Creates adaptable paths that respond to environmental changes detected during flight. These algorithms incorporate sensor feedback and replanning capabilities to navigate through changing or partially known environments.
+    \item \textbf{Multi-objective path planning:} Balances multiple competing criteria simultaneously, such as minimizing distance while maintaining specific altitude requirements or maximizing coverage quality while reducing energy consumption.
+\end{enumerate}
+
+Coverage Path Planning (CPP) represents the most applicable approach for the SCAN project. CPP methods ensure that every point within a defined area falls within the drone's sensor footprint at least once during the flight, while minimizing unnecessary overlap and optimizing operational parameters~\cite{SmoothCoverage}. For aerial surveying applications, CPP algorithms must consider the camera's field of view (FOV), drone flight constraints, and terrain characteristics.
+
+\subsection{Decomposition-Based Approaches}
+
+Decomposition-based approaches divide complex areas into manageable subregions for systematic coverage. These methods vary in how they partition spaces and generate paths within each partition.
+
+Exact cellular decomposition partitions the target region into non-overlapping cells that collectively represent the precise area geometry. Trapezoidal decomposition, a common implementation, divides the space into trapezoid-shaped cells along vertical lines at obstacle vertices. This decomposition supports back-and-forth coverage patterns within each cell but often fails to account for camera FOV considerations, resulting in redundant coverage and suboptimal efficiency~\cite{cabreira2019survey}.
+
+Boustrophedon decomposition extends trapezoidal methods by incorporating camera parameters and altitude information to calculate optimal line spacing based on the projected FOV. This approach reduces unnecessary overlap between adjacent flight lines and improves overall mission efficiency. The method creates cells at critical points where the connectivity of the space changes, resulting in fewer cells than simple trapezoidal decomposition~\cite{cabreira2019survey}.
+
+Grid-based decomposition approximates the target area using uniform grid cells. The cell size is calculated based on camera FOV at a specified altitude, providing straightforward implementation but limited adaptability to irregular boundaries~\cite{MathworksUAV}. This method produces rectilinear paths that align with the grid structure, resulting in predictable flight patterns suitable for many survey applications.
+
+Adaptive grid-based methods refine standard grid approaches by generating non-uniform grid cells based on terrain characteristics, coverage requirements, or obstacle density. This adaptation improves coverage efficiency in complex environments by allocating smaller cells to areas requiring detailed inspection and larger cells to homogeneous regions.
+
+For large survey areas, hierarchical decomposition methods divide the space into multiple levels of abstraction. These approaches first partition the area into major regions, then subdivide each region into smaller cells for detailed coverage. This multi-level strategy allows for more effective resource allocation and parallel execution using multiple drones~\cite{cabreira2019survey}.
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.8\linewidth]{decomposition_methods.png}
+% \caption{Comparison of decomposition methods: trapezoidal, Boustrophedon, and grid-based.}
+% \label{fig:decomposition}
+% \end{figure}
+
+\subsection{Graph-Based Algorithms}
+
+Graph-based algorithms represent the environment as connected nodes and edges, enabling systematic traversal through the search space.
+
+Wavefront algorithms propagate numerical values from goal nodes throughout the graph to create a navigation function that guides the path planning process. Standard implementations use breadth-first propagation from destination to start points, with each node assigned a value representing its distance from the goal. Modified wavefront approaches incorporate gradient information to reduce the number of turns, employing gradient ascent for coverage paths and gradient descent for return paths~\cite{cabreira2019survey}.
+
+A* algorithms and their variants combine the strengths of Dijkstra's algorithm and greedy best-first search to find optimal paths through the graph. These algorithms use heuristic functions to estimate the cost from current positions to goals, directing the search toward promising directions. Enhanced A* implementations for drone applications incorporate dynamic heuristics that account for flight dynamics, enabling more efficient searches and smoother trajectories. Modified A* variants such as Theta* permit any-angle paths rather than restricting movement to graph edges, resulting in more natural flight trajectories with fewer directional changes~\cite{OptimizationUAV}.
+
+Rapidly-exploring Random Trees (RRT) and RRT* construct paths by incrementally sampling reachable states from a start position and extending the search tree toward randomly selected points in the configuration space. These sampling-based methods work effectively in environments with numerous obstacles and complex constraints. RRT* improves upon basic RRT by incorporating optimization steps that rewire the tree to maintain optimality as new nodes are added.
+
+Visibility graph approaches connect mutually visible vertices in the environment, creating a roadmap for navigation. When applied to coverage planning, these algorithms define subpaths between cells or regions, enabling efficient transitions between coverage areas.
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.8\linewidth]{graph_based_algorithms.png}
+% \caption{Example of graph-based path planning in a sample environment.}
+% \label{fig:graphbased}
+% \end{figure}
+
+\subsection{Optimization-Based Approaches}
+
+Optimization-based approaches formulate path planning as mathematical optimization problems with explicitly defined objectives and constraints.
+
+Traveling Salesman Problem (TSP) formulations optimize the sequence of waypoints to minimize total travel distance. For coverage applications, these approaches first define coverage points or cells, then determine the optimal visitation order. Solution methods include Genetic Algorithms, Ant Colony Optimization (ACO), Simulated Annealing, and Lin-Kernighan heuristics (LKH)~\cite{SmoothCoverage}. While these methods excel at distance minimization, they often require adaptations to address drone-specific constraints such as turning radius limitations, altitude restrictions, and camera configurations.
+
+Multi-objective optimization models extend single-objective approaches by simultaneously considering multiple factors including flight distance, energy consumption, number of turns, and coverage quality. These models employ Pareto optimization techniques to identify solutions that represent optimal trade-offs between competing objectives~\cite{OptimizationUAV}.
+
+Recent hybrid approaches combine B-spline trajectory generation with gradient-based optimization to create continuous flight paths. B-splines provide smooth parameterized curves that satisfy drone kinematic constraints, while gradient methods optimize the spline control points to meet mission objectives.
+
+Mathematical programming formulations express path planning constraints and objectives as linear or nonlinear systems. Mixed Integer Linear Programming (MILP) models precisely capture coverage requirements, obstacle avoidance constraints, and mission objectives but scale poorly with problem size. Nonlinear programming approaches accommodate drone dynamics more accurately but introduce computational complexity.
+
+For computational efficiency during implementation, approximation algorithms offer near-optimal solutions with bounded performance guarantees. These methods include minimum spanning tree approximations for coverage, 2-approximation algorithms for related TSP variants, and polynomial-time approximation schemes that trade solution quality for reduced computation time.
+
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.8\linewidth]{optimization_evolution.png}
+% \caption{Optimization process from initial to improved path.}
+% \label{fig:optimization}
+% \end{figure}
+
+\subsection{Evaluation Criteria for Drone Surveying Applications}
+
+Selecting appropriate CPP algorithms for drone surveying requires evaluation against application-specific criteria:
+\begin{enumerate}
+    \item \textbf{Camera Field of View Integration:} Algorithms must account for camera FOV characteristics, including projection geometry, overlap requirements, and angular distortion at different altitudes. This integration ensures complete coverage with minimal redundancy.
+    \item \textbf{Path Smoothness:} Path smoothness affects both flight efficiency and data quality. Algorithms should generate trajectories with limited angular changes, respecting the drone's turning capabilities and minimizing motion blur in captured imagery.
+    \item \textbf{Computational Simplicity:} For practical implementation in a project with broader system design focus, algorithms should maintain computational simplicity. While advanced methods may produce marginally better paths, the additional implementation complexity must be justified by significant performance improvements.
+    \item \textbf{Adaptability to Area Size:} Algorithms should scale effectively with increasing area sizes. For very large survey regions, the approach should permit partitioning into manageable sub-areas that can be processed separately while maintaining coverage continuity.
+\end{enumerate}
+
+No single algorithm perfectly satisfies all requirements across all scenarios. Each method presents trade-offs between computational complexity, path quality, and implementation difficulty.
+
+Based on analysis of existing CPP methods, a grid-based decomposition approach combined with basic optimization techniques provides a balanced solution for the SCAN project. Grid-based methods offer direct incorporation of camera parameters through cell-size calculations, computational simplicity for implementation, and straightforward scaling to different area sizes~\cite{MathworksUAV}. The rectangular flight patterns align well with image processing requirements for photogrammetry and visual data analysis.
+
+This approach can be enhanced with simple waypoint optimization to reduce unnecessary transitions between coverage regions. Rather than implementing complex TSP solvers, a greedy nearest-neighbor approach for connecting decomposed regions offers a reasonable compromise between implementation complexity and path quality. Such an approach generates valid coverage paths while maintaining modularity that permits future algorithm replacement as the system evolves.
+
+For large survey areas, the implementation should include area subdivision capabilities that automatically partition extensive regions into manageable segments. These segments can then be processed individually or assigned to multiple drones for parallel execution. This simple hierarchical approach addresses the concern about CPP scalability for large environments without introducing excessive algorithmic complexity.
+
+Path smoothing can be implemented as a post-processing step using basic filtering techniques or simple curve fitting methods. While advanced B-spline or Bézier curve approaches would produce optimally smooth paths, simpler techniques such as corner cutting or moving average filters provide acceptable smoothness with minimal implementation effort.
+
+This balanced approach prioritizes functional implementation and integration with other system components while maintaining acceptable performance for drone surveying applications focused on human detection. The modular design allows for future algorithmic improvements without requiring complete system redesign.
+
+% Analysis of different ways of implementing real-time person detection and object recognition.
+\section{Computer Vision Integration}
+
+Effective computer vision integration is critical for drone-based survey systems, particularly for applications requiring person detection and object recognition capabilities such as helipad identification. The integration of vision systems presents unique challenges in aerial platforms due to constraints related to processing power, weight limitations, and real-time operation requirements \cite{Hossain2019}.
+
+\subsection{Object Detection Approaches}
+
+In the field of aerial object detection, deep learning has clearly outperformed traditional approaches in recent years \cite{Zhang2021, Carrio2018}. Traditional computer vision methods HOG or Haar cascades are shown to struggle with the challenging conditions of drone photography such as unpredictable lighting and small size of objects when viewed from above \cite{AlKaff2018, Kyrkou2019}.
+
+Convolutional Neural Networks (CNNs) offer substantially better performance for aerial detection tasks. Unlike traditional approaches that rely on manually designed features, CNNs learn to identify important visual patterns directly from training data \cite{Hossain2019}. These modern approaches generally fall into two categories:
+
+
+\begin{itemize}
+    \item \textbf{Two-stage detectors}: Models like Faster R-CNN \cite{Ren2017} first find potential object regions, then classify them in a second step. While they tend to be more accurate, they're also computationally expensive and often too slow for real-time drone applications.
+    
+    \item \textbf{Single-stage detectors}: Models like YOLO \cite{Redmon2016} process the entire image in one pass. They sacrifice a small amount of accuracy for substantial speed improvements - a critical factor for this application.
+\end{itemize}
+
+For this project, the YOLO architecture stands out as particularly promising \cite{Ly2019}. There are several practical reasons for this choice:
+
+\begin{itemize}
+    \item \textbf{Speed}: YOLO's architecture delivers very good real-time performance which is essential in time critical situations \cite{Tijtgat2017}.
+    
+    \item \textbf{Resource efficiency}: The lightweight design means detection can run on a ground station without requiring powerful hardware, which makes the system accessible and practical \cite{Wu2019}.
+    
+    \item \textbf{Adaptable framework}: YOLO's architecture provides the flexibility to customize models specifically for aerial imagery challenges \cite{Benjumea2021}.
+\end{itemize}
+
+The balance between detection speed and accuracy makes YOLO a natural fit for drone surveillance applications, where reliable detection must occur within practical timeframes to provide actionable intelligence in the field \cite{Kyrkou2019}.
+
+\subsection{Processing Location Considerations}
+
+The physical location where computer vision processing occurs significantly impacts system design and capabilities. Two primary approaches exist for implementing vision processing in drone systems:
+
+\subsubsection{On-board Processing}
+
+On-board processing places the computational workload directly on the drone itself, running object detection algorithms on hardware that travels with the aircraft:
+
+\begin{itemize}
+    \item \textbf{Advantages}:
+    \begin{itemize}
+        \item Real-time detection with minimal delay, critical for time-sensitive applications \cite{Tijtgat2017}
+        \item Continued functionality even when wireless signals are weak or lost \cite{Mittal2019}
+        \item Reduced wireless transmission needs, allowing operation in bandwidth-constrained environments \cite{Yanmaz2018}
+    \end{itemize}
+    
+    \item \textbf{Limitations}:
+    \begin{itemize}
+        \item Parrot's Olympe SDK doesn't provide any built-in way to integrate AI frameworks on the drone itself \cite{ParrotOlympeDoc}
+        \item Adding external computing hardware would make the drone heavier and drain the battery faster, significantly reducing flight time \cite{Mittal2019}
+        \item Trying to modify the drone's firmware for AI capabilities could potentially destabilize flight controls and the firmware itself \cite{Tijtgat2017}
+    \end{itemize}
+\end{itemize}
+
+While on-board processing offers some advantages for drone-based detection systems, significant software architecture and hardware limitations currently outweigh these benefits. Current drone SDKs are optimized for flight control and media handling but lack crucial AI framework support \cite{ParrotOlympeDoc, Pelliccione2020}.
+
+\subsubsection{Ground Station Processing}
+
+Ground station processing offloads computational tasks to more powerful computers at the ground control station:
+
+\begin{itemize}
+    \item \textbf{Advantages}:
+    \begin{itemize}
+        \item Access to greater computational resources allowing more sophisticated detection algorithms \cite{Cavaliere2019}
+        \item Preservation of drone battery life and flight time \cite{AlKaff2018}
+    \end{itemize}
+    
+    \item \textbf{Limitations}:
+    \begin{itemize}
+        \item Dependency on reliable communication links \cite{Chmaj2015}
+        \item Potential latency from transmission, processing, and return communication \cite{Cavaliere2019}
+        \item Bandwidth requirements for video transmission \cite{Yanmaz2018}
+    \end{itemize}
+\end{itemize}
+
+Despite these limitations, ground station processing represents the most viable approach for the SCAN project, considering both technical constraints and practical implementation requirements. The Olympe SDK provides robust video streaming support and the ability to capture high-resolution still images, creating an effective pipeline for off-board vision processing \cite{ParrotOlympeDoc}.
+
+\subsection{Implementation Considerations for Parrot ANAFI}
+
+The Parrot ANAFI platform offers specific capabilities that inform potential computer vision integration approaches \cite{ParrotSDKDoc}:
+
+\begin{itemize}
+    \item \textbf{Video Streaming Capabilities}: The ANAFI provides video streaming at resolutions up to 4K at 30fps through its Wi-Fi connection \cite{ParrotANAFISpec}. This streaming capability enables real-time vision processing on ground stations.
+    
+    \item \textbf{Photography Capabilities}: The drone can capture 21MP still images that can be transferred for analysis, offering higher resolution and clearer view than video frames but with reduced frequency \cite{ParrotANAFISpec}.
+\end{itemize}
+
+\subsubsection{Still Image Capture Approach}
+
+Analysis of detection requirements for the SCAN project indicates that high-resolution still image capture is the most appropriate imaging modality for person detection tasks:
+
+\begin{itemize}
+    \item \textbf{High-Resolution Photography for Person Detection}: For area survey operations focused on detecting humans, discrete high-resolution image capture offers significant benefits:
+    \begin{itemize}
+        \item Superior spatial resolution capturing finer details at greater distances \cite{Mueller2019}
+        \item Reduced bandwidth utilization during extensive area coverage \cite{Gao2020}
+        \item Higher signal-to-noise ratio improving detection accuracy in variable conditions \cite{Wu2019}
+    \end{itemize}
+\end{itemize}
+
+This approach leverages the strengths of the ANAFI's 21MP camera capabilities while mitigating bandwidth limitations inherent to continuous video streaming. The implementation can be achieved through systematic image capture at waypoints during the area survey mission phases.

@@ -1,0 +1,8 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+# Use a newer numpy version that has wheels for Python 3.13
+numpy>=1.26.0
+geopy==2.4.0
+requests==2.31.0
+# Olympe requires Python 3.10.13
+parrot-olympe

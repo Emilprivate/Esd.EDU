@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Flight Planner" xmlns="http://www.topografix.com/GPX/1/1">
+    <metadata>
+        <name>Drone Flight Path</name>
+        <time>2025-04-18T00:06:13.838508</time>
+    </metadata>
+    <rte>
+        <name>Flight Path</name>
+        <rtept lat="57.01316841313764" lon="9.990861117839813">
+            <ele>20.0</ele>
+            <name>WP-0</name>
+            <desc>move</desc>
+        </rtept>
+        <rtept lat="57.013339784450444" lon="9.99079766690657">
+            <ele>20.0</ele>
+            <name>WP-1</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013533836843955" lon="9.99079766910432">
+            <ele>20.0</ele>
+            <name>WP-2</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01372788923144" lon="9.9907976713021">
+            <ele>20.0</ele>
+            <name>WP-3</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01392194161285" lon="9.990797673499907">
+            <ele>20.0</ele>
+            <name>WP-4</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01392194231319" lon="9.99032338261556">
+            <ele>20.0</ele>
+            <name>WP-5</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01372788993177" lon="9.990323382887688">
+            <ele>20.0</ele>
+            <name>WP-6</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013533837544294" lon="9.99032338315981">
+            <ele>20.0</ele>
+            <name>WP-7</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01333978515077" lon="9.990323383431932">
+            <ele>20.0</ele>
+            <name>WP-8</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01316841313764" lon="9.990861117839813">
+            <ele>20.0</ele>
+            <name>WP-9</name>
+            <desc>move</desc>
+        </rtept>
+    </rte>
+</gpx>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Stream Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #333;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:active {
+            background: #003d80;
+        }
+        .status {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .movement-controls {
+            margin-top: 30px;
+        }
+        .empty-cell {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drone Stream Control</h1>
+    
+    <div class="status" id="connectionStatus">
+        Status: Not Connected
+    </div>
+
+    <div class="video-container">
+        <img src="/video_feed" id="videoStream" alt="Drone Video Feed">
+    </div>
+
+    <div class="controls">
+        <button id="takeoffBtn">Takeoff</button>
+        <button id="landBtn">Land</button>
+        <button id="emergencyBtn">Emergency</button>
+    </div>
+
+    <div class="controls movement-controls">
+        <button id="emptyCell1" class="empty-cell">-</button>
+        <button id="forwardBtn">Forward</button>
+        <button id="emptyCell2" class="empty-cell">-</button>
+        
+        <button id="leftBtn">Left</button>
+        <button id="emptyCell3" class="empty-cell">-</button>
+        <button id="rightBtn">Right</button>
+        
+        <button id="emptyCell4" class="empty-cell">-</button>
+        <button id="backwardBtn">Backward</button>
+        <button id="emptyCell5" class="empty-cell">-</button>
+    </div>
+    
+    <div class="controls">
+        <button id="upBtn">Up</button>
+        <button id="downBtn">Down</button>
+        <button id="turnLeftBtn">Turn Left</button>
+        <button id="turnRightBtn">Turn Right</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        // Connect to the Socket.IO server
+        const socket = io();
+        const status = document.getElementById('connectionStatus');
+        
+        // Connection status handling
+        socket.on('connect', () => {
+            status.textContent = 'Status: Connected to drone server';
+            status.style.backgroundColor = '#d4edda';
+        });
+        
+        socket.on('disconnect', () => {
+            status.textContent = 'Status: Disconnected from drone server';
+            status.style.backgroundColor = '#f8d7da';
+        });
+        
+        socket.on('status', (data) => {
+            status.textContent = 'Status: ' + data.message;
+        });
+        
+        // Drone Control Functions
+        document.getElementById('takeoffBtn').addEventListener('click', () => {
+            socket.emit('takeoff', {}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('landBtn').addEventListener('click', () => {
+            socket.emit('land', {}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('emergencyBtn').addEventListener('click', () => {
+            status.textContent = 'Status: Emergency stop not implemented';
+        });
+        
+        // Movement controls
+        document.getElementById('forwardBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 1, right: 0, up: 0, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('backwardBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: -1, right: 0, up: 0, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('leftBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: -1, up: 0, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('rightBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: 1, up: 0, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('upBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: 0, up: 1, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('downBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: 0, up: -1, turn: 0}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('turnLeftBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: 0, up: 0, turn: -Math.PI/4}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+        
+        document.getElementById('turnRightBtn').addEventListener('click', () => {
+            socket.emit('move', {forward: 0, right: 0, up: 0, turn: Math.PI/4}, (response) => {
+                status.textContent = 'Status: ' + response.status;
+            });
+        });
+    </script>
+</body>
+</html>

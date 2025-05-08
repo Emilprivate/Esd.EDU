@@ -1,0 +1,6 @@
+eventlet==0.39.1
+Flask==3.1.0
+Flask_SocketIO==5.5.1
+numpy==2.2.5
+olympe==0.0.1a1
+Shapely==2.1.0

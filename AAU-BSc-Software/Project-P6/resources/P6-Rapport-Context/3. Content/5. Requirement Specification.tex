@@ -1,0 +1,49 @@
+\chapter{Requirement Analysis}\label{ch:requirement-analysis}
+
+\section{Introduction to Requirements}
+This chapter outlines the complete requirements of the project. Requirements are categorized using the MoSCoW prioritization model to ensure critical features are implemented within project deadlines while maintaining flexibility for enhancements.
+
+\section{Methodology}
+\subsection{MoSCoW Prioritization}
+The MoSCoW model provides a clear framework for requirement prioritization:
+\begin{itemize}
+    \item \textbf{Must Have} — Essential requirements that form the minimum viable product
+    \item \textbf{Should Have} — Important but not critical requirements
+    \item \textbf{Could Have} — Desirable features that enhance the system
+    \item \textbf{Won't Have} — Features explicitly excluded from the current scope
+\end{itemize}
+
+\section{Requirement Specification}
+
+\subsection{Must Have Requirements}
+\begin{itemize}
+    \item \textbf{Parrot ANAFI-1 Drone}: Main UAV platform with camera payload and flight control.
+    \item \textbf{Simulation Tool}: Setup and use of Parrot Sphinx or equivalent for safe algorithm and system testing before real-world deployment.
+    \item \textbf{Grid-Based Path Planning}: Basic area coverage using a decomposition algorithm.
+    \item \textbf{Aquatic Person Detection}: Machine learning model (YOLO) for water rescue scenarios.
+    \item \textbf{Intuitive Frontend UI}: Functional and intuitive interface for system control and monitoring.
+    \item \textbf{Interchangeable Algorithm and AI Model}: System design must allow easy replacement or updating of path planning algorithms and AI detection models.
+\end{itemize}
+
+\subsection{Should Have Requirements}
+\begin{itemize}
+    \item \textbf{YOLO Helipad Recognition}: Detection model for landing zone identification.
+    \item \textbf{Multi-Drone Coordination}: Support for controlling and monitoring multiple UAVs.
+    \item \textbf{YOLO Terrestrial Person Detection}: Expanded detection for land-based search.
+\end{itemize}
+
+\subsection{Could Have Requirements}
+\begin{itemize}
+    \item \textbf{Real-Time Video Streaming}: Live camera feed in the frontend.
+    \item \textbf{Advanced Data Visualization}: Geospatial mapping and telemetry overlay.
+    \item \textbf{Enhanced UI/UX Design}: Improved controls and status dashboard.
+    \item \textbf{Advanced Grid-Based Path Planning}: More advanced area coverage algorithm, with focus on being as efficient as possible.
+\end{itemize}
+
+\subsection{Won't Have Requirements}
+\begin{itemize}
+    \item \textbf{Obstacle Avoidance Systems}: Collision prevention mechanisms are not included.
+\end{itemize}
+
+\section{Requirement Traceability}
+All requirements will be tracked throughout the development lifecycle to ensure complete implementation of must-have features and appropriate consideration of should-have and could-have features based on resource availability and project timeline. The YOLOv8 implementation will leverage pretrained models from computer vision repositories, while drone control integration will use Parrot's official SDK documentation.

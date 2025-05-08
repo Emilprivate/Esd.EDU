@@ -1,0 +1,38 @@
+\chapter{Introduction}
+
+Unmanned Aerial Vehicles (UAVs), or drones, are increasingly being used for aerial surveying and mapping tasks. These drones are typically equipped with cameras capable of capturing high-resolution images of designated areas. The effectiveness of drone-based surveying depends on the flight path used during operation. An optimized flight path covers the entire target area with minimal overlap between the captured images, reducing flight distance and operational time \cite{MathworksUAV}.
+
+Coverage Path Planning (CPP) refers to algorithms designed to compute drone flight paths that ensure full area coverage while minimizing redundant image capture. Commercial drone platforms often use simple predefined patterns, such as lawnmower patterns (boustrophedonic), resulting in significant overlap between images. Research indicates that overlaps exceeding the 75\% front-lap and the 75\% side-lap provide limited additional accuracy but substantially increase the duration of the flight and the workload of data processing \cite{AerotasOverlap}.
+
+Effective CPP algorithms must consider several parameters, including camera field of view (FOV), drone altitude, and ground resolution requirements. The camera FOV determines the ground area captured per image, while altitude directly influences the ground sample distance (GSD), defining image resolution \cite{UAVCoveragePDF}. Incorrect selection or calculation of these parameters can result in either excessive overlap or incomplete coverage \cite{OptimizationUAV}.
+
+The Self-Controlled Aerial Navigation (SCAN) project aims to develop a system capable of generating optimized drone flight paths based on user-defined survey areas. The goal is to minimize redundant coverage and total flight distance while ensuring complete area coverage with adequate image resolution. Specifically, the project focuses on optimizing paths to facilitate human detection from drone imagery, making the solution applicable for Search and Rescue (SAR) scenarios.
+
+Existing CPP approaches include exact cellular decomposition methods \cite{UAVCoveragePDF}, wavefront algorithms, and traveling salesman problem (TSP)-based solutions \cite{SmoothCoverage}. However, these methods do not specifically address practical constraints such as camera FOV optimization or human detection requirements encountered in SAR operations. For instance, SAR missions require capturing images at resolutions suitable for reliable human identification \cite{NorwegianPolice}.
+
+The SCAN system combines these algorithmic considerations with practical implementation by allowing users to select survey areas on an interactive map interface. The system then autonomously generates an optimized flight plan for the drone to execute. Additionally, SCAN integrates object detection capabilities to identify humans within surveyed areas and map their positions onto the user interface.
+
+\section{Initial problem statement}
+
+Drones are commonly employed for aerial surveying tasks in various fields including agriculture, construction, environmental monitoring, and search and rescue operations. Current commercial drone solutions typically utilize basic predefined flight patterns with fixed overlap settings. These standard approaches often result in redundant data collection, increased flight time, and higher processing demands without proportional improvements in survey accuracy \cite{AerotasOverlap}.
+
+The SCAN project addresses this issue by developing optimized path planning algorithms specifically designed for drone-based aerial surveying tasks. The primary objective is to create a flight path that minimizes total travel distance while ensuring full coverage of a selected area at sufficient image resolution for reliable human detection.
+
+Several factors must be considered when developing optimized flight paths:
+
+First, the drone's camera field of view directly affects ground coverage per image. Ignoring this parameter can lead to unnecessary overlap or gaps in coverage \cite{UAVCoveragePDF}. Accurate calculations involving camera FOV and drone altitude are required to determine optimal spacing between adjacent flight lines.
+
+Second, minimizing total travel distance while maintaining complete coverage presents an optimization problem similar to known computational geometry problems such as the traveling salesman problem (TSP). Existing solutions such as grid-based decomposition or wavefront algorithms have limitations when applied practically to aerial surveying tasks involving irregularly shaped areas or obstacles \cite{SmoothCoverage}.
+
+Third, there is a trade-off between altitude selection and image quality. Higher altitudes increase coverage per image but reduce spatial resolution required for accurate human detection \cite{OptimizationUAV}. For example, guidelines from Norwegian Police SAR operations recommend specific altitudes (approximately 100 meters above ground level) combined with defined camera angles to achieve suitable resolution for human identification tasks \cite{NorwegianPolice}.
+
+To effectively address these challenges, the following research questions are defined:
+
+\begin{itemize}
+    \item Which algorithms can generate optimized drone flight paths that minimize total travel distance while ensuring complete area coverage?
+    \item How can optimal drone altitude and flight line spacing be calculated based on camera field of view to achieve required image resolution?
+    \item How can object detection methods be integrated into aerial surveying workflows for automatic identification and mapping of humans within surveyed regions?
+    \item What methods can be used to evaluate algorithm performance under realistic operational conditions?
+\end{itemize}
+
+The SCAN project focuses specifically on addressing these research questions through algorithm development, practical experimentation, and validation tests aimed at demonstrating applicability in scenarios such as search and rescue operations.

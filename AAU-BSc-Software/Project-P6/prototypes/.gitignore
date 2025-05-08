@@ -1,0 +1,20 @@
+# Virtual Environment
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node
+node_modules/
+dist/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+my-virtual-env/
+photos/**
+**.JPG

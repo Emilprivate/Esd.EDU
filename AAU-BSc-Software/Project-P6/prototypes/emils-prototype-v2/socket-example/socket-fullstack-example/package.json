@@ -1,0 +1,28 @@
+{
+  "name": "socket-fullstack-example",
+  "version": "1.0.0",
+  "description": "Flask and React fullstack application with Socket.IO",
+  "main": "index.js",
+  "scripts": {
+    "setup:venv": "python -m venv venv",
+    "setup:backend": ".\\venv\\Scripts\\activate && pip install flask flask-socketio eventlet",
+    "setup:frontend": "cd frontend-react && npm install --legacy-peer-deps",
+    "fix:mui": "cd frontend-react && npm install @mui/system --legacy-peer-deps",
+    "setup": "npm run setup:venv && npm run setup:backend && npm run setup:frontend && npm run fix:mui",
+    "start:backend": ".\\venv\\Scripts\\activate && python backend-sample.py",
+    "start:frontend": "cd frontend-react && npm run dev",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "keywords": [
+    "flask",
+    "react",
+    "socketio",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3"
+  }
+}

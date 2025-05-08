@@ -1,0 +1,1690 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="/Media/Logo/favicon.ico" rel="shortcut icon">
+
+        <!-- Bootstrap 5, FontAwesome and Bootstrap 5 Treeview CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA==" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" rel="stylesheet" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/gh/nhmvienna/bs5treeview@main/src/css/bstreeview.min.css" rel="stylesheet" integrity="sha512-fwzUDydywzqITPl/VyrK/GfrBa4uYtV9O2suClyw594FbZhey0lpMi70qOZbh5xmsaRK456YOgEmH7P3SwK7WA==" crossorigin="anonymous">
+
+        <style>
+            body {
+                margin: 0;
+                padding-right: 0px;
+                overflow-x: hidden;
+            }
+
+            .header {
+                position: sticky;
+                width: 100%;
+                top: 0;
+                background-color: #000;
+                z-index: 100;
+            }
+
+            .header .header_nav {
+                display: flex;
+                flex-direction: row;
+                margin: auto;
+                align-content: flex-start;
+                justify-content: space-between;
+                height: 70px;
+                padding: 0 50px;
+                color: #fff;
+                align-items: center;
+            }
+
+            .header .header_nav img {
+                width: 120px;
+                vertical-align: unset;
+                border-style: none;
+                padding-top: 0.5em;
+            }
+
+            .header .header_nav ul {
+                justify-content: center;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                align-content: flex-start;
+                padding: 0;
+                list-style: none;
+                margin: 0;
+            }
+
+            .header_nav ul li {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                height: 100%;
+                padding-right: 5.6rem;
+                outline: none;
+                list-style: none;
+                cursor: default;
+            }
+
+            .header_nav ul li span {
+                color: #FEFFFF !important;
+                text-transform: capitalize;
+                font-size: 25px;
+                text-indent: 40px;
+            }
+
+            .table_header {
+                padding: 1.5rem 1.5rem 0 1.5rem;
+                margin: 1.5rem 0 0 0;
+                border-width: 1px;
+                border-top-left-radius: .25rem;
+                border-top-right-radius: .25rem;
+                position: relative;
+            }
+
+            .table_header .table {
+                margin-bottom: 0;
+            }
+
+            .table_header .table thead {
+                border-style: none;
+            }
+
+            .table_header .table th.centered {
+                width: 15em;
+                text-align: center;
+            }
+
+            .item_data {
+                float: right;
+                color: #212529;
+                font-size: 15px;
+                font-weight: normal;
+            }
+
+            .item_data .last_modified {
+                text-align: center;
+                width: 15em;
+                display: inline-block;
+            }
+
+            .item_data .size {
+                text-align: center;
+                width: 15em;
+                display: inline-block;
+            }
+        </style>
+
+        <title>Firmware Versions &amp; SDK - Parrot</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header_nav">
+                <a href="https://developer.parrot.com/">
+                    <img src="/Media/Logo/parrot_dev_white.png" alt="Parrot for Developers" width="120" />
+                </a>
+                <ul>
+                    <li>
+                        <span>Firmware Versions &amp; SDK</span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- JQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap 5 Bundle with Popper & Bootstrap 5 Treeview JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/nhmvienna/bs5treeview@main/src/js/bstreeview.min.js" integrity="sha512-g0zJsQknIQoSoZgrBrz5ir+aLpIHNjhh9GmosEiMCcMtYAX/mATj8aK7UP/vTtVEKRG7ByLk8BxmMIe7C8QBxw==" crossorigin="anonymous"></script>
+
+        <div class="table_header">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" class="centered">Last modified</th>
+                        <th scope="col" class="centered">Size</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- Data placeholder -->
+        <div id="versions-tree"></div>
+
+
+        <script>
+            $(function () {
+                // below is the placeholder used to inject the partners versions as json data
+                let versions = {
+    "Versions": {
+        "airsdk-missions": {
+            "airsdk": {
+                "cli": {}
+            },
+            "vehicle": {
+                "classic": {
+                    "#latest": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/%23latest/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "03/07/2023 08:12:36",
+                                "size": "3.93 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/%23latest/build.prop",
+                            "last_modified": "03/07/2023 08:12:36",
+                            "size": "393 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/%23latest/md5sum.txt",
+                            "last_modified": "03/07/2023 08:12:36",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.7.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.7.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "03/07/2023 08:12:36",
+                                "size": "3.93 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.7.0/build.prop",
+                            "last_modified": "03/07/2023 08:12:36",
+                            "size": "393 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.7.0/md5sum.txt",
+                            "last_modified": "03/07/2023 08:12:36",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.6.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.6.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "21/04/2023 13:15:08",
+                                "size": "3.93 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.6.0/build.prop",
+                            "last_modified": "21/04/2023 13:15:08",
+                            "size": "393 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.6.0/md5sum.txt",
+                            "last_modified": "21/04/2023 13:15:09",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.5.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.5.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "13/01/2023 18:05:20",
+                                "size": "3.91 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.5.0/build.prop",
+                            "last_modified": "13/01/2023 18:05:20",
+                            "size": "393 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/classic/7.5.0/md5sum.txt",
+                            "last_modified": "13/01/2023 18:05:21",
+                            "size": "119 B"
+                        }
+                    }
+                },
+                "pc": {
+                    "#latest": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/%23latest/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "03/07/2023 08:12:38",
+                                "size": "4.58 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/%23latest/build.prop",
+                            "last_modified": "03/07/2023 08:12:38",
+                            "size": "378 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/%23latest/md5sum.txt",
+                            "last_modified": "03/07/2023 08:12:39",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.7.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.7.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "03/07/2023 08:12:38",
+                                "size": "4.58 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.7.0/build.prop",
+                            "last_modified": "03/07/2023 08:12:38",
+                            "size": "378 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.7.0/md5sum.txt",
+                            "last_modified": "03/07/2023 08:12:39",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.6.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.6.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "21/04/2023 13:14:47",
+                                "size": "4.58 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.6.0/build.prop",
+                            "last_modified": "21/04/2023 13:14:47",
+                            "size": "378 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.6.0/md5sum.txt",
+                            "last_modified": "21/04/2023 13:14:48",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.5.0": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.5.0/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "13/01/2023 18:06:04",
+                                "size": "4.56 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.5.0/build.prop",
+                            "last_modified": "13/01/2023 18:06:04",
+                            "size": "378 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.5.0/md5sum.txt",
+                            "last_modified": "13/01/2023 18:06:05",
+                            "size": "119 B"
+                        }
+                    },
+                    "7.4.1": {
+                        "images": {
+                            "com.parrot.missions.vehicle.tar.gz": {
+                                "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.4.1/images/com.parrot.missions.vehicle.tar.gz",
+                                "last_modified": "01/12/2022 18:47:48",
+                                "size": "4.47 MB"
+                            }
+                        },
+                        "build.prop": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.4.1/build.prop",
+                            "last_modified": "01/12/2022 18:47:48",
+                            "size": "378 B"
+                        },
+                        "md5sum.txt": {
+                            "url": "https://firmware.parrot.com/Versions/airsdk-missions/vehicle/pc/7.4.1/md5sum.txt",
+                            "last_modified": "01/12/2022 18:47:49",
+                            "size": "119 B"
+                        }
+                    }
+                }
+            }
+        },
+        "anafi": {
+            "4k": {
+                "#latest": {
+                    "images": {
+                        "anafi-4k.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/%23latest/images/anafi-4k.tar.gz",
+                            "last_modified": "14/11/2022 17:09:52",
+                            "size": "59.3 MB"
+                        },
+                        "anafi_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/%23latest/images/anafi_update.tar.gz",
+                            "last_modified": "14/11/2022 17:09:52",
+                            "size": "58.78 MB"
+                        },
+                        "carpet_lib.tgz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/%23latest/images/carpet_lib.tgz",
+                            "last_modified": "14/11/2022 17:09:52",
+                            "size": "59.87 KB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/4k/%23latest/build.prop",
+                        "last_modified": "16/12/2022 14:26:16",
+                        "size": "362 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/4k/%23latest/md5sum.txt",
+                        "last_modified": "14/11/2022 17:09:52",
+                        "size": "227 B"
+                    }
+                },
+                "1.8.2": {
+                    "images": {
+                        "anafi-4k.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/1.8.2/images/anafi-4k.tar.gz",
+                            "last_modified": "28/07/2022 21:13:12",
+                            "size": "59.3 MB"
+                        },
+                        "anafi_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/1.8.2/images/anafi_update.tar.gz",
+                            "last_modified": "28/07/2022 21:13:12",
+                            "size": "58.78 MB"
+                        },
+                        "carpet_lib.tgz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/4k/1.8.2/images/carpet_lib.tgz",
+                            "last_modified": "28/07/2022 21:13:12",
+                            "size": "59.87 KB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/4k/1.8.2/build.prop",
+                        "last_modified": "16/12/2022 14:28:21",
+                        "size": "362 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/4k/1.8.2/md5sum.txt",
+                        "last_modified": "28/07/2022 21:13:12",
+                        "size": "227 B"
+                    }
+                }
+            },
+            "mark3": {},
+            "pc": {
+                "#latest": {
+                    "images": {
+                        "anafi-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/%23latest/images/anafi-pc.ext2.zip",
+                            "last_modified": "23/04/2024 13:38:27",
+                            "size": "37.62 MB"
+                        },
+                        "carpet_lib.tgz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/%23latest/images/carpet_lib.tgz",
+                            "last_modified": "14/11/2022 17:09:37",
+                            "size": "66.87 KB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/%23latest/build.prop",
+                        "last_modified": "23/04/2024 13:38:26",
+                        "size": "395 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/%23latest/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:29",
+                        "size": "102 B"
+                    }
+                },
+                "1.9.5": {
+                    "images": {
+                        "anafi-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/1.9.5/images/anafi-pc.ext2.zip",
+                            "last_modified": "16/03/2023 10:15:03",
+                            "size": "48.79 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.9.5/build.prop",
+                        "last_modified": "16/03/2023 10:15:02",
+                        "size": "393 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.9.5/md5sum.txt",
+                        "last_modified": "16/03/2023 10:15:07",
+                        "size": "102 B"
+                    }
+                },
+                "1.8.2": {
+                    "images": {
+                        "anafi-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/1.8.2/images/anafi-pc.ext2.zip",
+                            "last_modified": "28/07/2022 20:32:23",
+                            "size": "50.95 MB"
+                        },
+                        "carpet_lib.tgz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/1.8.2/images/carpet_lib.tgz",
+                            "last_modified": "28/07/2022 20:32:23",
+                            "size": "66.87 KB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.8.2/build.prop",
+                        "last_modified": "16/12/2022 14:27:53",
+                        "size": "393 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.8.2/md5sum.txt",
+                        "last_modified": "28/07/2022 20:32:23",
+                        "size": "166 B"
+                    }
+                },
+                "1.10.4": {
+                    "images": {
+                        "anafi-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi/pc/1.10.4/images/anafi-pc.ext2.zip",
+                            "last_modified": "23/04/2024 13:38:26",
+                            "size": "37.62 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.10.4/build.prop",
+                        "last_modified": "23/04/2024 13:38:26",
+                        "size": "395 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi/pc/1.10.4/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:28",
+                        "size": "102 B"
+                    }
+                }
+            },
+            "ua": {}
+        },
+        "anafi2": {
+            "classic": {
+                "#latest": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/%23latest/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "23/04/2024 13:38:11",
+                            "size": "222.19 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/%23latest/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "23/04/2024 13:38:03",
+                            "size": "222.19 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/%23latest/build.prop",
+                        "last_modified": "23/04/2024 13:37:58",
+                        "size": "497 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/%23latest/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:15",
+                        "size": "205 B"
+                    }
+                },
+                "7.7.1": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.1/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "23/04/2024 13:38:07",
+                            "size": "222.19 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.1/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "23/04/2024 13:37:58",
+                            "size": "222.19 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.1/build.prop",
+                        "last_modified": "23/04/2024 13:37:57",
+                        "size": "497 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.1/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:15",
+                        "size": "205 B"
+                    }
+                },
+                "7.7.0": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.0/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "03/07/2023 08:11:07",
+                            "size": "222.19 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.0/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "03/07/2023 08:10:56",
+                            "size": "222.19 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.0/build.prop",
+                        "last_modified": "03/07/2023 08:10:56",
+                        "size": "497 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.7.0/md5sum.txt",
+                        "last_modified": "03/07/2023 08:11:16",
+                        "size": "205 B"
+                    }
+                },
+                "7.6.1": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.6.1/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "21/04/2023 13:06:38",
+                            "size": "221.9 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.6.1/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "21/04/2023 13:06:31",
+                            "size": "221.89 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.6.1/build.prop",
+                        "last_modified": "21/04/2023 13:06:31",
+                        "size": "498 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.6.1/md5sum.txt",
+                        "last_modified": "21/04/2023 13:06:45",
+                        "size": "205 B"
+                    }
+                },
+                "7.5.1": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.1/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "06/02/2023 10:38:31",
+                            "size": "220.1 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.1/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "06/02/2023 10:38:23",
+                            "size": "220.1 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.1/build.prop",
+                        "last_modified": "06/02/2023 10:38:23",
+                        "size": "501 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.1/md5sum.txt",
+                        "last_modified": "06/02/2023 10:38:38",
+                        "size": "205 B"
+                    }
+                },
+                "7.5.0": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.0/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "13/01/2023 16:33:22",
+                            "size": "220.1 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.0/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "13/01/2023 16:33:12",
+                            "size": "220.1 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.0/build.prop",
+                        "last_modified": "13/01/2023 16:33:11",
+                        "size": "501 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.5.0/md5sum.txt",
+                        "last_modified": "13/01/2023 16:33:30",
+                        "size": "205 B"
+                    }
+                },
+                "7.4.1": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.1/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "05/01/2023 17:00:15",
+                            "size": "194.54 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.1/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "05/01/2023 17:00:07",
+                            "size": "194.54 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.1/build.prop",
+                        "last_modified": "05/01/2023 17:00:05",
+                        "size": "498 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.1/md5sum.txt",
+                        "last_modified": "05/01/2023 17:00:22",
+                        "size": "205 B"
+                    }
+                },
+                "7.4.0": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.0/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "07/10/2022 15:52:12",
+                            "size": "194.53 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.0/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "07/10/2022 15:52:05",
+                            "size": "194.53 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.0/build.prop",
+                        "last_modified": "07/10/2022 15:52:04",
+                        "size": "498 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.4.0/md5sum.txt",
+                        "last_modified": "07/10/2022 15:52:19",
+                        "size": "205 B"
+                    }
+                },
+                "7.3.2": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.2/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "29/09/2022 17:08:31",
+                            "size": "193.83 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.2/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "29/09/2022 17:08:25",
+                            "size": "193.83 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.2/build.prop",
+                        "last_modified": "29/09/2022 17:08:25",
+                        "size": "499 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.2/md5sum.txt",
+                        "last_modified": "29/09/2022 17:08:37",
+                        "size": "260 B"
+                    }
+                },
+                "7.3.1": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.1/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "01/07/2022 09:48:14",
+                            "size": "193.85 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.1/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "01/07/2022 09:48:18",
+                            "size": "193.84 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.1/build.prop",
+                        "last_modified": "01/07/2022 09:48:21",
+                        "size": "499 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.3.1/md5sum.txt",
+                        "last_modified": "01/07/2022 09:48:22",
+                        "size": "260 B"
+                    }
+                },
+                "7.2.2": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.2.2/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:21:23",
+                            "size": "203.1 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.2.2/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:21:26",
+                            "size": "203.09 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.2.2/build.prop",
+                        "last_modified": "30/06/2022 13:21:30",
+                        "size": "498 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.2.2/md5sum.txt",
+                        "last_modified": "30/06/2022 13:21:30",
+                        "size": "260 B"
+                    }
+                },
+                "7.1.0": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.1.0/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:15:40",
+                            "size": "201.16 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.1.0/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:15:44",
+                            "size": "201.15 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.1.0/build.prop",
+                        "last_modified": "30/06/2022 13:15:49",
+                        "size": "417 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.1.0/md5sum.txt",
+                        "last_modified": "30/06/2022 13:15:49",
+                        "size": "260 B"
+                    }
+                },
+                "7.0.14": {
+                    "images": {
+                        "anafi2-classic-reflash-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.0.14/images/anafi2-classic-reflash-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:01:40",
+                            "size": "188.11 MB"
+                        },
+                        "anafi2-classic-update-dev-osonly.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.0.14/images/anafi2-classic-update-dev-osonly.tar.gz",
+                            "last_modified": "30/06/2022 13:01:44",
+                            "size": "188.1 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.0.14/build.prop",
+                        "last_modified": "30/06/2022 13:01:48",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic/7.0.14/md5sum.txt",
+                        "last_modified": "30/06/2022 13:01:48",
+                        "size": "260 B"
+                    }
+                }
+            },
+            "classic_airsdk": {
+                "#latest": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/%23latest/build.prop",
+                        "last_modified": "03/07/2023 08:11:54",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/%23latest/md5sum.txt",
+                        "last_modified": "03/07/2023 08:11:54",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/%23latest/sdk.tar.gz",
+                        "last_modified": "03/07/2023 08:11:45",
+                        "size": "303.49 MB"
+                    }
+                },
+                "7.7.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.7.0/build.prop",
+                        "last_modified": "03/07/2023 08:11:54",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.7.0/md5sum.txt",
+                        "last_modified": "03/07/2023 08:11:54",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.7.0/sdk.tar.gz",
+                        "last_modified": "03/07/2023 08:11:37",
+                        "size": "303.49 MB"
+                    }
+                },
+                "7.6.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.6.0/build.prop",
+                        "last_modified": "21/04/2023 13:11:20",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.6.0/md5sum.txt",
+                        "last_modified": "21/04/2023 13:11:20",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.6.0/sdk.tar.gz",
+                        "last_modified": "21/04/2023 13:11:10",
+                        "size": "275.34 MB"
+                    }
+                },
+                "7.5.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.5.0/build.prop",
+                        "last_modified": "13/01/2023 16:38:42",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.5.0/md5sum.txt",
+                        "last_modified": "13/01/2023 16:38:43",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.5.0/sdk.tar.gz",
+                        "last_modified": "13/01/2023 16:38:29",
+                        "size": "269.25 MB"
+                    }
+                },
+                "7.4.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.4.0/build.prop",
+                        "last_modified": "07/10/2022 15:55:52",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.4.0/md5sum.txt",
+                        "last_modified": "07/10/2022 15:55:52",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.4.0/sdk.tar.gz",
+                        "last_modified": "07/10/2022 15:55:44",
+                        "size": "252.3 MB"
+                    }
+                },
+                "7.3.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.3.0/build.prop",
+                        "last_modified": "01/07/2022 09:48:44",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.3.0/md5sum.txt",
+                        "last_modified": "01/07/2022 09:48:44",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.3.0/sdk.tar.gz",
+                        "last_modified": "01/07/2022 09:48:40",
+                        "size": "240.78 MB"
+                    }
+                },
+                "7.2.1": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.2.1/build.prop",
+                        "last_modified": "30/06/2022 13:22:01",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.2.1/md5sum.txt",
+                        "last_modified": "30/06/2022 13:22:01",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.2.1/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:21:56",
+                        "size": "241.5 MB"
+                    }
+                },
+                "7.1.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.1.0/build.prop",
+                        "last_modified": "30/06/2022 13:15:59",
+                        "size": "438 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.1.0/md5sum.txt",
+                        "last_modified": "30/06/2022 13:15:59",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.1.0/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:15:54",
+                        "size": "241.33 MB"
+                    }
+                },
+                "7.0.14": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.0.14/build.prop",
+                        "last_modified": "30/06/2022 13:02:58",
+                        "size": "440 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.0.14/md5sum.txt",
+                        "last_modified": "30/06/2022 13:02:58",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/classic_airsdk/7.0.14/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:02:53",
+                        "size": "241.37 MB"
+                    }
+                }
+            },
+            "pc": {
+                "#latest": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/%23latest/images/anafi2-pc.ext2.zip",
+                            "last_modified": "23/04/2024 13:38:21",
+                            "size": "115.85 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/%23latest/build.prop",
+                        "last_modified": "23/04/2024 13:38:19",
+                        "size": "509 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/%23latest/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:24",
+                        "size": "103 B"
+                    }
+                },
+                "7.7.1": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.1/images/anafi2-pc.ext2.zip",
+                            "last_modified": "23/04/2024 13:38:19",
+                            "size": "115.85 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.1/build.prop",
+                        "last_modified": "23/04/2024 13:38:19",
+                        "size": "509 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.1/md5sum.txt",
+                        "last_modified": "23/04/2024 13:38:24",
+                        "size": "103 B"
+                    }
+                },
+                "7.7.0": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.0/images/anafi2-pc.ext2.zip",
+                            "last_modified": "03/07/2023 08:11:21",
+                            "size": "115.85 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.0/build.prop",
+                        "last_modified": "03/07/2023 08:11:20",
+                        "size": "509 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.7.0/md5sum.txt",
+                        "last_modified": "03/07/2023 08:11:27",
+                        "size": "103 B"
+                    }
+                },
+                "7.6.1": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.6.1/images/anafi2-pc.ext2.zip",
+                            "last_modified": "21/04/2023 13:07:06",
+                            "size": "115.66 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.6.1/build.prop",
+                        "last_modified": "21/04/2023 13:07:06",
+                        "size": "510 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.6.1/md5sum.txt",
+                        "last_modified": "21/04/2023 13:07:12",
+                        "size": "103 B"
+                    }
+                },
+                "7.5.1": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.1/images/anafi2-pc.ext2.zip",
+                            "last_modified": "06/02/2023 10:39:16",
+                            "size": "124.8 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.1/build.prop",
+                        "last_modified": "06/02/2023 10:39:16",
+                        "size": "513 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.1/md5sum.txt",
+                        "last_modified": "06/02/2023 10:39:21",
+                        "size": "103 B"
+                    }
+                },
+                "7.5.0": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.0/images/anafi2-pc.ext2.zip",
+                            "last_modified": "13/01/2023 16:34:21",
+                            "size": "125.0 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.0/build.prop",
+                        "last_modified": "13/01/2023 16:34:20",
+                        "size": "513 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.5.0/md5sum.txt",
+                        "last_modified": "13/01/2023 16:34:26",
+                        "size": "103 B"
+                    }
+                },
+                "7.4.1": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.1/images/anafi2-pc.ext2.zip",
+                            "last_modified": "05/01/2023 17:00:47",
+                            "size": "106.08 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.1/build.prop",
+                        "last_modified": "05/01/2023 17:00:47",
+                        "size": "510 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.1/md5sum.txt",
+                        "last_modified": "05/01/2023 17:00:52",
+                        "size": "103 B"
+                    }
+                },
+                "7.4.0": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.0/images/anafi2-pc.ext2.zip",
+                            "last_modified": "07/10/2022 15:53:36",
+                            "size": "106.07 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.0/build.prop",
+                        "last_modified": "07/10/2022 15:53:36",
+                        "size": "510 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.4.0/md5sum.txt",
+                        "last_modified": "07/10/2022 15:53:41",
+                        "size": "103 B"
+                    }
+                },
+                "7.3.2": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.2/images/anafi2-pc.ext2.zip",
+                            "last_modified": "29/09/2022 17:10:48",
+                            "size": "105.26 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.2/build.prop",
+                        "last_modified": "29/09/2022 17:10:48",
+                        "size": "511 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.2/md5sum.txt",
+                        "last_modified": "29/09/2022 17:10:56",
+                        "size": "158 B"
+                    }
+                },
+                "7.3.1": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.1/images/anafi2-pc.ext2.zip",
+                            "last_modified": "01/07/2022 09:48:30",
+                            "size": "105.27 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.1/build.prop",
+                        "last_modified": "01/07/2022 09:48:32",
+                        "size": "511 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.3.1/md5sum.txt",
+                        "last_modified": "01/07/2022 09:48:32",
+                        "size": "158 B"
+                    }
+                },
+                "7.2.2": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.2.2/images/anafi2-pc.ext2.zip",
+                            "last_modified": "30/06/2022 13:21:35",
+                            "size": "105.44 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.2.2/build.prop",
+                        "last_modified": "30/06/2022 13:21:38",
+                        "size": "510 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.2.2/md5sum.txt",
+                        "last_modified": "30/06/2022 13:21:38",
+                        "size": "158 B"
+                    }
+                },
+                "7.1.0": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.1.0/images/anafi2-pc.ext2.zip",
+                            "last_modified": "30/06/2022 13:15:32",
+                            "size": "103.59 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.1.0/build.prop",
+                        "last_modified": "30/06/2022 13:15:34",
+                        "size": "429 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.1.0/md5sum.txt",
+                        "last_modified": "30/06/2022 13:15:34",
+                        "size": "158 B"
+                    }
+                },
+                "7.0.14": {
+                    "images": {
+                        "anafi2-pc.ext2.zip": {
+                            "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.0.14/images/anafi2-pc.ext2.zip",
+                            "last_modified": "30/06/2022 13:02:32",
+                            "size": "103.49 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.0.14/build.prop",
+                        "last_modified": "13/09/2022 17:04:49",
+                        "size": "431 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc/7.0.14/md5sum.txt",
+                        "last_modified": "30/06/2022 13:02:34",
+                        "size": "158 B"
+                    }
+                }
+            },
+            "pc_airsdk": {
+                "#latest": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/%23latest/build.prop",
+                        "last_modified": "03/07/2023 08:12:19",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/%23latest/md5sum.txt",
+                        "last_modified": "03/07/2023 08:12:19",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/%23latest/sdk.tar.gz",
+                        "last_modified": "03/07/2023 08:12:13",
+                        "size": "347.89 MB"
+                    }
+                },
+                "7.7.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.7.0/build.prop",
+                        "last_modified": "03/07/2023 08:12:19",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.7.0/md5sum.txt",
+                        "last_modified": "03/07/2023 08:12:19",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.7.0/sdk.tar.gz",
+                        "last_modified": "03/07/2023 08:12:07",
+                        "size": "347.89 MB"
+                    }
+                },
+                "7.6.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.6.0/build.prop",
+                        "last_modified": "21/04/2023 13:14:23",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.6.0/md5sum.txt",
+                        "last_modified": "21/04/2023 13:14:24",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.6.0/sdk.tar.gz",
+                        "last_modified": "21/04/2023 13:14:13",
+                        "size": "315.07 MB"
+                    }
+                },
+                "7.5.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.5.0/build.prop",
+                        "last_modified": "13/01/2023 16:36:39",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.5.0/md5sum.txt",
+                        "last_modified": "13/01/2023 16:36:39",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.5.0/sdk.tar.gz",
+                        "last_modified": "13/01/2023 16:36:28",
+                        "size": "306.39 MB"
+                    }
+                },
+                "7.4.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.4.0/build.prop",
+                        "last_modified": "07/10/2022 15:58:27",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.4.0/md5sum.txt",
+                        "last_modified": "07/10/2022 15:58:27",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.4.0/sdk.tar.gz",
+                        "last_modified": "07/10/2022 15:58:16",
+                        "size": "336.95 MB"
+                    }
+                },
+                "7.3.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.3.0/build.prop",
+                        "last_modified": "01/07/2022 09:48:54",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.3.0/md5sum.txt",
+                        "last_modified": "01/07/2022 09:48:54",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.3.0/sdk.tar.gz",
+                        "last_modified": "01/07/2022 09:48:49",
+                        "size": "318.23 MB"
+                    }
+                },
+                "7.2.1": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.2.1/build.prop",
+                        "last_modified": "30/06/2022 13:21:52",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.2.1/md5sum.txt",
+                        "last_modified": "30/06/2022 13:21:52",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.2.1/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:21:45",
+                        "size": "318.25 MB"
+                    }
+                },
+                "7.1.0": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.1.0/build.prop",
+                        "last_modified": "30/06/2022 13:15:27",
+                        "size": "419 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.1.0/md5sum.txt",
+                        "last_modified": "30/06/2022 13:15:27",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.1.0/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:15:22",
+                        "size": "318.09 MB"
+                    }
+                },
+                "7.0.14": {
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.0.14/build.prop",
+                        "last_modified": "30/06/2022 13:02:46",
+                        "size": "421 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.0.14/md5sum.txt",
+                        "last_modified": "30/06/2022 13:02:46",
+                        "size": "88 B"
+                    },
+                    "sdk.tar.gz": {
+                        "url": "https://firmware.parrot.com/Versions/anafi2/pc_airsdk/7.0.14/sdk.tar.gz",
+                        "last_modified": "30/06/2022 13:02:39",
+                        "size": "318.09 MB"
+                    }
+                }
+            }
+        },
+        "anafi3": {
+            "pc": {}
+        },
+        "groundsdk": {
+            "android": {},
+            "ios": {}
+        },
+        "mpp4": {
+            "s905x3": {
+                "#latest": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/%23latest/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "03/07/2023 08:12:32",
+                            "size": "93.41 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/%23latest/images/mpp4_update.tar.gz",
+                            "last_modified": "03/07/2023 08:12:28",
+                            "size": "89.43 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/%23latest/build.prop",
+                        "last_modified": "03/07/2023 08:12:25",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/%23latest/md5sum.txt",
+                        "last_modified": "03/07/2023 08:12:34",
+                        "size": "172 B"
+                    }
+                },
+                "7.7.1": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.7.1/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "03/07/2023 08:12:30",
+                            "size": "93.41 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.7.1/images/mpp4_update.tar.gz",
+                            "last_modified": "03/07/2023 08:12:26",
+                            "size": "89.43 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.7.1/build.prop",
+                        "last_modified": "03/07/2023 08:12:25",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.7.1/md5sum.txt",
+                        "last_modified": "03/07/2023 08:12:34",
+                        "size": "172 B"
+                    }
+                },
+                "7.6.0": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.6.0/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "21/04/2023 13:09:50",
+                            "size": "93.26 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.6.0/images/mpp4_update.tar.gz",
+                            "last_modified": "21/04/2023 13:09:46",
+                            "size": "89.29 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.6.0/build.prop",
+                        "last_modified": "21/04/2023 13:09:46",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.6.0/md5sum.txt",
+                        "last_modified": "21/04/2023 13:09:54",
+                        "size": "172 B"
+                    }
+                },
+                "7.5.0": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.5.0/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "13/01/2023 16:41:33",
+                            "size": "93.44 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.5.0/images/mpp4_update.tar.gz",
+                            "last_modified": "13/01/2023 16:41:29",
+                            "size": "89.47 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.5.0/build.prop",
+                        "last_modified": "13/01/2023 16:41:28",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.5.0/md5sum.txt",
+                        "last_modified": "13/01/2023 16:41:37",
+                        "size": "172 B"
+                    }
+                },
+                "7.4.0": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.4.0/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "07/10/2022 16:42:53",
+                            "size": "93.5 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.4.0/images/mpp4_update.tar.gz",
+                            "last_modified": "07/10/2022 16:42:49",
+                            "size": "89.53 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.4.0/build.prop",
+                        "last_modified": "07/10/2022 16:42:49",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.4.0/md5sum.txt",
+                        "last_modified": "07/10/2022 16:42:56",
+                        "size": "172 B"
+                    }
+                },
+                "7.3.2": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.2/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "30/09/2022 10:36:55",
+                            "size": "94.98 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.2/images/mpp4_update.tar.gz",
+                            "last_modified": "30/09/2022 10:36:51",
+                            "size": "91.0 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.2/build.prop",
+                        "last_modified": "30/09/2022 10:36:51",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.2/md5sum.txt",
+                        "last_modified": "30/09/2022 10:36:59",
+                        "size": "172 B"
+                    }
+                },
+                "7.3.1": {
+                    "images": {
+                        "mpp4-s905x3_dev.flash.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.1/images/mpp4-s905x3_dev.flash.tar.gz",
+                            "last_modified": "30/09/2022 10:36:16",
+                            "size": "94.98 MB"
+                        },
+                        "mpp4_update.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.1/images/mpp4_update.tar.gz",
+                            "last_modified": "30/09/2022 10:36:12",
+                            "size": "90.99 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.1/build.prop",
+                        "last_modified": "30/09/2022 10:36:11",
+                        "size": "391 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/mpp4/s905x3/7.3.1/md5sum.txt",
+                        "last_modified": "30/09/2022 10:36:20",
+                        "size": "172 B"
+                    }
+                }
+            }
+        },
+        "olympe": {
+            "linux": {
+                "#latest": {
+                    "images": {
+                        "manifest.xml": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/images/manifest.xml",
+                            "last_modified": "14/11/2022 17:17:59",
+                            "size": "8.01 KB"
+                        },
+                        "parrot-olympe-doc-7.4.2.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/images/parrot-olympe-doc-7.4.2.tar.gz",
+                            "last_modified": "14/11/2022 17:18:00",
+                            "size": "4.71 MB"
+                        },
+                        "parrot-olympe-src-7.4.2.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/images/parrot-olympe-src-7.4.2.tar.gz",
+                            "last_modified": "14/11/2022 17:18:03",
+                            "size": "119.37 MB"
+                        },
+                        "parrot_olympe-7.4.2-py3-none-manylinux_2_27_x86_64.whl": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/images/parrot_olympe-7.4.2-py3-none-manylinux_2_27_x86_64.whl",
+                            "last_modified": "14/11/2022 17:18:06",
+                            "size": "18.16 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/build.prop",
+                        "last_modified": "14/11/2022 17:17:59",
+                        "size": "375 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/olympe/linux/%23latest/md5sum.txt",
+                        "last_modified": "14/11/2022 17:18:07",
+                        "size": "334 B"
+                    }
+                },
+                "7.4.2": {
+                    "images": {
+                        "manifest.xml": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/images/manifest.xml",
+                            "last_modified": "14/11/2022 17:17:59",
+                            "size": "8.01 KB"
+                        },
+                        "parrot-olympe-doc-7.4.2.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/images/parrot-olympe-doc-7.4.2.tar.gz",
+                            "last_modified": "14/11/2022 17:17:59",
+                            "size": "4.71 MB"
+                        },
+                        "parrot-olympe-src-7.4.2.tar.gz": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/images/parrot-olympe-src-7.4.2.tar.gz",
+                            "last_modified": "14/11/2022 17:18:00",
+                            "size": "119.37 MB"
+                        },
+                        "parrot_olympe-7.4.2-py3-none-manylinux_2_27_x86_64.whl": {
+                            "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/images/parrot_olympe-7.4.2-py3-none-manylinux_2_27_x86_64.whl",
+                            "last_modified": "14/11/2022 17:18:05",
+                            "size": "18.16 MB"
+                        }
+                    },
+                    "build.prop": {
+                        "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/build.prop",
+                        "last_modified": "14/11/2022 17:17:58",
+                        "size": "375 B"
+                    },
+                    "md5sum.txt": {
+                        "url": "https://firmware.parrot.com/Versions/olympe/linux/7.4.2/md5sum.txt",
+                        "last_modified": "14/11/2022 17:18:07",
+                        "size": "334 B"
+                    }
+                }
+            }
+        }
+    }
+};
+
+                const isObject = (obj) => {
+                    return Object.prototype.toString.call(obj) === '[object Object]';
+                };
+
+                const buildChildItem = (obj, itemNodes, existingJson) => {
+
+                    $.each(obj, function(key, value) {
+
+                        // folders
+                        if (isObject(value) && !value.url) {
+                            subitem = {
+                                text: key,
+                                icon: "fa fa-folder",
+                                nodes: []
+                            };
+                            itemNodes.push(subitem);
+
+                            buildChildItem(value, subitem["nodes"], existingJson);
+                        }
+                        // leaf item
+                        else {
+                            bottomItem = {
+                                text:   '<a href="' + value.url + '" class="text-info"> \
+                                            <span class="item_key" style="margin-bottom: 0">' + key + '</span> \
+                                            <span class="item_data"> \
+                                                <span class="last_modified">' + value.last_modified + '</span> \
+                                                <span class="size">' + value.size + '</span> \
+                                            </span> \
+                                        </a>',
+                                icon: new RegExp('.*.tar$|.*.tar.gz$').test(key) ? "fa fa-archive" : "fa fa-file",
+                                href: value.url,
+                                class: "text-info"
+                            };
+
+                            itemNodes.push(bottomItem)
+                        }
+                    });
+                };
+
+                let json = [];
+                $.each(versions, function(key, value) {
+                    topitem = {
+                        text: key,
+                        expanded: true,
+                        nodes: []
+                    };
+                    json.push(topitem);
+
+                    buildChildItem(value, topitem["nodes"], json);
+                });
+
+                $('#versions-tree').bstreeview({
+                    data: json,
+                    expandIcon: 'fa fa-angle-down fa-fw',
+                    collapseIcon: 'fa fa-angle-right fa-fw',
+                    openNodeLinkOnNewTab: true,
+                    indent: 2
+                });
+            });
+        </script>
+    </body>
+</html>
