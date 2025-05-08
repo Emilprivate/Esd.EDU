@@ -7,7 +7,7 @@ The bachelor's project SCAN (Self-Controlled Aerial Navigation) focuses on devel
 - A user-friendly frontend interface for mission configuration and data visualization
 - A drone to execute automated flight operations
 
-Users can define regions on an interactive map, and the drone autonomously optimizes its flight path considering factors like camera field of view, elevation, and environmental parameters. Future expansions may include person detection and location mapping within surveyed areas.
+Users can define regions on an interactive map, and the drone autonomously optimizes its flight path considering factors like camera field of view, elevation, and environmental parameters. It also includes person detection and location mapping within surveyed areas.
 
 ## Project Structure
 
