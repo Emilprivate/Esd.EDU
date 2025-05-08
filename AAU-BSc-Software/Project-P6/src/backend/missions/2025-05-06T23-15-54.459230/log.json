@@ -1,0 +1,240 @@
+[
+  {
+    "action": "start_mission",
+    "timestamp": "2025-05-06T23:12:32.757971"
+  },
+  {
+    "action": "takeoff",
+    "timestamp": "2025-05-06T23:12:32.757989"
+  },
+  {
+    "action": "ascend",
+    "timestamp": "2025-05-06T23:12:35.520368",
+    "altitude": 20.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:12:41.894710",
+    "waypoint_num": 1,
+    "lat": 57.00903680590854,
+    "lon": 10.35125585683226,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:12:59.307042",
+    "waypoint_num": 1
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:13:03.767348",
+    "waypoint_num": 1
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:13:05.920612",
+    "waypoint_num": 1,
+    "heading": 180.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:13:09.932820",
+    "waypoint_num": 2,
+    "lat": 57.00888194396849,
+    "lon": 10.35125585683226,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:13:17.876002",
+    "waypoint_num": 2
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:13:22.006213",
+    "waypoint_num": 2
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:13:24.159612",
+    "waypoint_num": 2,
+    "heading": 180.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:13:28.154121",
+    "waypoint_num": 3,
+    "lat": 57.00872708202843,
+    "lon": 10.35125585683226,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:13:36.083944",
+    "waypoint_num": 3
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:13:40.223034",
+    "waypoint_num": 3
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:13:42.377649",
+    "waypoint_num": 3,
+    "heading": 89.99982857500032
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:13:44.946445",
+    "waypoint_num": 4,
+    "lat": 57.00872708202843,
+    "lon": 10.351664619622454,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:13:54.330361",
+    "waypoint_num": 4
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:13:56.897104",
+    "waypoint_num": 4
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:13:59.050608",
+    "waypoint_num": 4,
+    "heading": 89.99982857500032
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:14:01.600803",
+    "waypoint_num": 5,
+    "lat": 57.00872708202843,
+    "lon": 10.352073382412648,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:14:10.981314",
+    "waypoint_num": 5
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:14:13.546013",
+    "waypoint_num": 5
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:14:15.701022",
+    "waypoint_num": 5,
+    "heading": 0.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:14:17.570408",
+    "waypoint_num": 6,
+    "lat": 57.00888194396849,
+    "lon": 10.352073382412648,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:14:25.493143",
+    "waypoint_num": 6
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:14:26.340500",
+    "waypoint_num": 6
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:14:28.494652",
+    "waypoint_num": 6,
+    "heading": 0.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:14:30.617830",
+    "waypoint_num": 7,
+    "lat": 57.00903680590854,
+    "lon": 10.352073382412648,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:14:38.538142",
+    "waypoint_num": 7
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:14:39.795871",
+    "waypoint_num": 7
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:14:41.946661",
+    "waypoint_num": 7,
+    "heading": 270.00017142560836
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:14:44.503948",
+    "waypoint_num": 8,
+    "lat": 57.00903680590854,
+    "lon": 10.351664619622454,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:14:53.882017",
+    "waypoint_num": 8
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:14:56.442571",
+    "waypoint_num": 8
+  },
+  {
+    "action": "rotate_to_next",
+    "timestamp": "2025-05-06T23:14:58.596608",
+    "waypoint_num": 8,
+    "heading": 180.0
+  },
+  {
+    "action": "move_to_waypoint",
+    "timestamp": "2025-05-06T23:15:02.639660",
+    "waypoint_num": 9,
+    "lat": 57.00888194396849,
+    "lon": 10.351664619622454,
+    "type": "grid_center"
+  },
+  {
+    "action": "rotate_drone",
+    "timestamp": "2025-05-06T23:15:10.566331",
+    "waypoint_num": 9
+  },
+  {
+    "action": "take_photo",
+    "timestamp": "2025-05-06T23:15:14.630154",
+    "waypoint_num": 9
+  },
+  {
+    "action": "return_to_drone_start_point",
+    "timestamp": "2025-05-06T23:15:16.784604",
+    "lat": 57.00900733333333,
+    "lon": 10.3502005
+  },
+  {
+    "action": "land",
+    "timestamp": "2025-05-06T23:15:39.161416"
+  },
+  {
+    "action": "complete",
+    "timestamp": "2025-05-06T23:15:54.459230",
+    "success": true
+  }
+]

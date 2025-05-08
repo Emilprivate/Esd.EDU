@@ -1,6 +1,5 @@
-# Project-P6: Self Controlled Aerial Navigation (SCAN)
+# P6-scan
 
-## Overview
 The bachelor's project SCAN (Self-Controlled Aerial Navigation) focuses on developing an autonomous navigation system for drones. The system consists of:
 
 - A backend server for computation and data transmission
@@ -11,8 +10,8 @@ Users can define regions on an interactive map, and the drone autonomously optim
 
 ## Project Structure
 
-- `src/backend`: Python backend application
-- `src/frontend`: React + Vite frontend application
+- `/backend`: Python backend application
+- `/frontend`: React + Vite frontend application
 
 ## Installation
 
