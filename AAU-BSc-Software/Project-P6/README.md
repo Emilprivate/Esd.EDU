@@ -1,5 +1,7 @@
 # P6-scan
 
+## Overview
+
 The bachelor's project SCAN (Self-Controlled Aerial Navigation) focuses on developing an autonomous navigation system for drones. The system consists of:
 
 - A backend server for computation and data transmission
