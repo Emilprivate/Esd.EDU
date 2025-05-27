@@ -28,6 +28,9 @@ SCAN is a bachelor's project focused on developing an autonomous drone navigatio
 /backend/missions   # Saved mission logs and images
 ```
 
+## Demo
+[Demo Video](https://youtu.be/bhyAKbZ0iPA)
+
 ---
 
 ## Installation
