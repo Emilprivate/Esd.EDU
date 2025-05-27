@@ -1,0 +1,434 @@
+/* Terminal Styles */
+.terminal-logs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.terminal-logs.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.terminal-controls {
+  display: flex;
+  justify-content: space-between;
+  background-color: #252525;
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.terminal-controls button {
+  background-color: transparent;
+  color: #ccc;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.terminal-controls button.active {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.terminal-controls button:hover {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.terminal-actions {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-fullscreen-btn {
+  background-color: #333 !important;
+  border-radius: 4px;
+  padding: 4px 10px !important;
+}
+
+.terminal-view {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+
+.terminal-view::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-view::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.terminal-view::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  word-break: break-word;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding: 2px 0;
+  border-radius: 2px;
+  width: 100%; /* Ensure line takes full width */
+}
+
+.terminal-line:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.terminal-line.flight-log {
+  background-color: rgba(0, 100, 200, 0.1);
+}
+
+.terminal-line .time {
+  color: #888;
+  margin-right: 8px;
+  font-size: 0.85em;
+  flex-shrink: 0;
+  white-space: nowrap; /* Prevent timestamp from breaking */
+}
+
+.terminal-line .level {
+  margin-right: 8px;
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 50px; /* Minimum width for level */
+  white-space: nowrap; /* Prevent level from breaking */
+}
+
+.terminal-line .level.INFO, .terminal-line .level.info {
+  color: #68b723;
+}
+
+.terminal-line .level.ERROR, .terminal-line .level.error {
+  color: #e01b24;
+}
+
+.terminal-line .level.WARNING, .terminal-line .level.warning {
+  color: #f9c440;
+}
+
+.terminal-line .level.DEBUG, .terminal-line .level.debug {
+  color: #8ab4f8;
+}
+
+.terminal-line .logger {
+  color: #64baff;
+  margin-right: 8px;
+  flex-shrink: 0;
+  white-space: nowrap; /* Prevent logger from breaking */
+}
+
+.terminal-line .message {
+  color: #f0f0f0;
+  flex: 1 1 100%; /* Take full width on wrap */
+  word-wrap: break-word; /* Ensure words wrap */
+  overflow-wrap: break-word; /* Additional wrapping support */
+  min-width: 0; /* Allow flexbox to shrink below content size if needed */
+}
+
+/* For very long unbreakable strings */
+.terminal-line .message:after {
+  content: "";
+  width: 100%;
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  .terminal-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .terminal-line .time,
+  .terminal-line .level,
+  .terminal-line .logger {
+    margin-bottom: 2px;
+  }
+}
+
+.terminal-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #777;
+  font-style: italic;
+}
+
+/* Terminal Resizing */
+.terminal-resizer {
+  cursor: ns-resize;
+  position: relative;
+  height: 6px !important;
+  background-color: #eee;
+  margin: 10px 0;
+  border-radius: 3px;
+}
+
+.terminal-resizer:hover {
+  background-color: #007bff;
+}
+
+.terminal-resizer::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background-color: #888;
+  border-radius: 1px;
+}
+
+.terminal-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  transition: height 0.15s ease-out;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated App styles */
+.fullscreen-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-map-area {
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-sidebar {
+  width: 380px;
+  min-width: 350px;
+  background-color: #f8f9fa;
+  border-left: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* Flight progress styling */
+.flight-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flight-status-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.flight-progress-counter {
+  font-size: 16px;
+  color: #555;
+}
+
+.flight-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.flight-complete-icon {
+  font-size: 48px;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.flight-complete-text {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.primary-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+  background-color: #0069d9;
+}
+
+.secondary-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.secondary-button:hover {
+  background-color: #5a6268;
+}
+
+.action-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 10px;
+}
+
+.action-button:hover {
+  background-color: #218838;
+}
+
+/* Drone Status Panel Styles */
+.drone-status-panel {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 15px; /* Add space below the panel */
+}
+
+.drone-status-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.drone-status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 10px 15px; /* Row and column gap */
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column; /* Stack label and value */
+  font-size: 0.95em;
+}
+
+.status-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 3px; /* Space between label and value */
+  font-size: 0.9em;
+}
+
+.status-value {
+  font-weight: 400;
+  color: #222;
+}
+
+.status-value.connected,
+.status-value.valid {
+  color: #28a745; /* Green for positive status */
+  font-weight: 500;
+}
+
+.status-value.disconnected,
+.status-value.invalid {
+  color: #dc3545; /* Red for negative status */
+  font-weight: 500;
+}
+
+.status-item.gps-coord {
+  grid-column: span 1; /* Ensure GPS coords take full width if needed on smaller grids */
+}
+
+/* Sidebar Divider */
+.sidebar-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 15px 0; /* Consistent spacing */
+}

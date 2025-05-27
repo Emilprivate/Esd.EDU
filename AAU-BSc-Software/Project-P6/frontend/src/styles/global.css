@@ -1,0 +1,75 @@
+/* Global styles */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+/* Custom Animations */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+/* Leaflet Map Style Overrides */
+.leaflet-container {
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 20px !important;
+  line-height: 1.5;
+}
+
+/* Crosshair cursor for drawing mode */
+.crosshair-cursor {
+  cursor: crosshair !important;
+}
+
+/* Ensure proper terminal styling */
+.terminal-resizer {
+  cursor: ns-resize;
+  position: relative;
+}
+
+/* Better styling for map controls */
+.custom-control-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make sure control buttons are visible */
+#custom-map-controls {
+  background: transparent;
+}
+
+#custom-map-controls button {
+  width: 100%;
+  min-width: 110px;
+}
+
+#custom-map-controls .MuiPaper-root {
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

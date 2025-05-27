@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Flight Planner" xmlns="http://www.topografix.com/GPX/1/1">
+    <metadata>
+        <name>Drone Flight Path</name>
+        <time>2025-03-26T17:17:52.865623</time>
+    </metadata>
+    <rte>
+        <name>Flight Path</name>
+        <rtept lat="57.01326772075886" lon="9.991217851638796">
+            <ele>20.0</ele>
+            <name>WP-0</name>
+            <desc>move</desc>
+        </rtept>
+        <rtept lat="57.013332690786356" lon="9.991503548664191">
+            <ele>20.0</ele>
+            <name>WP-1</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01352674373454" lon="9.991977832521231">
+            <ele>20.0</ele>
+            <name>WP-2</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013332691340786" lon="9.99197783204854">
+            <ele>20.0</ele>
+            <name>WP-3</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01333269009872" lon="9.992452115432883">
+            <ele>20.0</ele>
+            <name>WP-4</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01352674249246" lon="9.992452118375443">
+            <ele>20.0</ele>
+            <name>WP-5</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01372079488015" lon="9.992452121318038">
+            <ele>20.0</ele>
+            <name>WP-6</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01372079612224" lon="9.991977832993925">
+            <ele>20.0</ele>
+            <name>WP-7</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0137207955678" lon="9.9915035446698">
+            <ele>20.0</ele>
+            <name>WP-8</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0135267431801" lon="9.991503546667007">
+            <ele>20.0</ele>
+            <name>WP-9</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01326772075886" lon="9.991217851638796">
+            <ele>20.0</ele>
+            <name>WP-10</name>
+            <desc>move</desc>
+        </rtept>
+    </rte>
+</gpx>

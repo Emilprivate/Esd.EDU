@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Flight Planner" xmlns="http://www.topografix.com/GPX/1/1">
+    <metadata>
+        <name>Drone Flight Path</name>
+        <time>2025-04-18T00:18:06.334540</time>
+    </metadata>
+    <rte>
+        <name>Flight Path</name>
+        <rtept lat="57.0133937396327" lon="9.991475343704224">
+            <ele>20.0</ele>
+            <name>WP-0</name>
+            <desc>move</desc>
+        </rtept>
+        <rtept lat="57.01348508793391" lon="9.991546463654048">
+            <ele>20.0</ele>
+            <name>WP-1</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013679140322864" lon="9.99154645810202">
+            <ele>20.0</ele>
+            <name>WP-2</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01387319270576" lon="9.99154645254992">
+            <ele>20.0</ele>
+            <name>WP-3</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01406724508261" lon="9.991546446997752">
+            <ele>20.0</ele>
+            <name>WP-4</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01426129745341" lon="9.991546441445513">
+            <ele>20.0</ele>
+            <name>WP-5</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01445534981814" lon="9.991546435893204">
+            <ele>20.0</ele>
+            <name>WP-6</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01464940217681" lon="9.991546430340824">
+            <ele>20.0</ele>
+            <name>WP-7</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014843454529434" lon="9.991546424788377">
+            <ele>20.0</ele>
+            <name>WP-8</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015037506876" lon="9.991546419235858">
+            <ele>20.0</ele>
+            <name>WP-9</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01523155921652" lon="9.991546413683267">
+            <ele>20.0</ele>
+            <name>WP-10</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015425611550974" lon="9.99154640813061">
+            <ele>20.0</ele>
+            <name>WP-11</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01542561469131" lon="9.992020718154967">
+            <ele>20.0</ele>
+            <name>WP-12</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01523156235684" lon="9.992020721237452">
+            <ele>20.0</ele>
+            <name>WP-13</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01503751001629" lon="9.992020724319895">
+            <ele>20.0</ele>
+            <name>WP-14</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0148434576697" lon="9.992020727402302">
+            <ele>20.0</ele>
+            <name>WP-15</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014649405317066" lon="9.992020730484668">
+            <ele>20.0</ele>
+            <name>WP-16</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014455352958365" lon="9.992020733566997">
+            <ele>20.0</ele>
+            <name>WP-17</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0142613005936" lon="9.992020736649286">
+            <ele>20.0</ele>
+            <name>WP-18</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01406724822278" lon="9.992020739731535">
+            <ele>20.0</ele>
+            <name>WP-19</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01387319584592" lon="9.992020742813747">
+            <ele>20.0</ele>
+            <name>WP-20</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01367914346299" lon="9.99202074589592">
+            <ele>20.0</ele>
+            <name>WP-21</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01348509107401" lon="9.992020748978053">
+            <ele>20.0</ele>
+            <name>WP-22</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01348509241759" lon="9.992495034302129">
+            <ele>20.0</ele>
+            <name>WP-23</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01367914480658" lon="9.99249503368989">
+            <ele>20.0</ele>
+            <name>WP-24</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01387319718953" lon="9.992495033077644">
+            <ele>20.0</ele>
+            <name>WP-25</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01406724956641" lon="9.99249503246539">
+            <ele>20.0</ele>
+            <name>WP-26</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01426130193722" lon="9.99249503185313">
+            <ele>20.0</ele>
+            <name>WP-27</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01445535430199" lon="9.992495031240859">
+            <ele>20.0</ele>
+            <name>WP-28</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0146494066607" lon="9.992495030628582">
+            <ele>20.0</ele>
+            <name>WP-29</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01484345901335" lon="9.992495030016297">
+            <ele>20.0</ele>
+            <name>WP-30</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01503751135996" lon="9.992495029404004">
+            <ele>20.0</ele>
+            <name>WP-31</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0152315637005" lon="9.992495028791703">
+            <ele>20.0</ele>
+            <name>WP-32</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015425616034996" lon="9.992495028179396">
+            <ele>20.0</ele>
+            <name>WP-33</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015425615582025" lon="9.992969338203839">
+            <ele>20.0</ele>
+            <name>WP-34</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015231563247546" lon="9.99296933634597">
+            <ele>20.0</ele>
+            <name>WP-35</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015037510906986" lon="9.992969334488127">
+            <ele>20.0</ele>
+            <name>WP-36</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01484345856039" lon="9.992969332630306">
+            <ele>20.0</ele>
+            <name>WP-37</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01464940620775" lon="9.992969330772508">
+            <ele>20.0</ele>
+            <name>WP-38</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014455353849044" lon="9.992969328914734">
+            <ele>20.0</ele>
+            <name>WP-39</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01426130148427" lon="9.992969327056985">
+            <ele>20.0</ele>
+            <name>WP-40</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01406724911345" lon="9.992969325199258">
+            <ele>20.0</ele>
+            <name>WP-41</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01387319673657" lon="9.992969323341553">
+            <ele>20.0</ele>
+            <name>WP-42</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013679144353645" lon="9.992969321483875">
+            <ele>20.0</ele>
+            <name>WP-43</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013485091964654" lon="9.992969319626217">
+            <ele>20.0</ele>
+            <name>WP-44</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0132910395696" lon="9.992969317768583">
+            <ele>20.0</ele>
+            <name>WP-45</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01329103732015" lon="9.993443600622768">
+            <ele>20.0</ele>
+            <name>WP-46</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013485089715196" lon="9.993443604950265">
+            <ele>20.0</ele>
+            <name>WP-47</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01367914210417" lon="9.993443609277817">
+            <ele>20.0</ele>
+            <name>WP-48</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013873194487076" lon="9.993443613605423">
+            <ele>20.0</ele>
+            <name>WP-49</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014067246863945" lon="9.993443617933083">
+            <ele>20.0</ele>
+            <name>WP-50</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01426129923475" lon="9.993443622260799">
+            <ele>20.0</ele>
+            <name>WP-51</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014455351599494" lon="9.99344362658857">
+            <ele>20.0</ele>
+            <name>WP-52</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01464940395818" lon="9.993443630916394">
+            <ele>20.0</ele>
+            <name>WP-53</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01484345631082" lon="9.993443635244272">
+            <ele>20.0</ele>
+            <name>WP-54</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01503750865741" lon="9.993443639572206">
+            <ele>20.0</ele>
+            <name>WP-55</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015231560997925" lon="9.993443643900196">
+            <ele>20.0</ele>
+            <name>WP-56</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0154256133324" lon="9.993443648228238">
+            <ele>20.0</ele>
+            <name>WP-57</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015425609286105" lon="9.993917958252542">
+            <ele>20.0</ele>
+            <name>WP-58</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.015231556951676" lon="9.993917951454321">
+            <ele>20.0</ele>
+            <name>WP-59</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01503750461118" lon="9.99391794465619">
+            <ele>20.0</ele>
+            <name>WP-60</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01484345226463" lon="9.993917937858143">
+            <ele>20.0</ele>
+            <name>WP-61</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014649399912024" lon="9.993917931060183">
+            <ele>20.0</ele>
+            <name>WP-62</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014455347553366" lon="9.993917924262307">
+            <ele>20.0</ele>
+            <name>WP-63</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.014261295188646" lon="9.993917917464517">
+            <ele>20.0</ele>
+            <name>WP-64</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01406724281786" lon="9.993917910666813">
+            <ele>20.0</ele>
+            <name>WP-65</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01387319044104" lon="9.993917903869194">
+            <ele>20.0</ele>
+            <name>WP-66</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01367913805815" lon="9.993917897071661">
+            <ele>20.0</ele>
+            <name>WP-67</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0134850856692" lon="9.993917890274215">
+            <ele>20.0</ele>
+            <name>WP-68</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01329103327421" lon="9.993917883476854">
+            <ele>20.0</ele>
+            <name>WP-69</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.013096980873144" lon="9.993917876679578">
+            <ele>20.0</ele>
+            <name>WP-70</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01309698491907" lon="9.993443596295325">
+            <ele>20.0</ele>
+            <name>WP-71</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0130969871685" lon="9.992969315910974">
+            <ele>20.0</ele>
+            <name>WP-72</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01309698762143" lon="9.992495035526582">
+            <ele>20.0</ele>
+            <name>WP-73</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01329104002254" lon="9.992495034914361">
+            <ele>20.0</ele>
+            <name>WP-74</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01329103867897" lon="9.992020752060148">
+            <ele>20.0</ele>
+            <name>WP-75</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.01329103553888" lon="9.991546469206007">
+            <ele>20.0</ele>
+            <name>WP-76</name>
+            <desc>photo</desc>
+        </rtept>
+        <rtept lat="57.0133937396327" lon="9.991475343704224">
+            <ele>20.0</ele>
+            <name>WP-77</name>
+            <desc>move</desc>
+        </rtept>
+    </rte>
+</gpx>

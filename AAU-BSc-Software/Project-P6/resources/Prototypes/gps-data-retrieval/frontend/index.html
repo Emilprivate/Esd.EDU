@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone GPS Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #map {
+            flex: 1;
+            min-height: 500px;
+        }
+        .info {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+        }
+        #connection-status {
+            text-align: center;
+            padding: 5px;
+            color: white;
+            background-color: #f44336;
+        }
+        #connection-status.connected {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drone GPS Tracker</h1>
+        <div id="connection-status">Connecting to server...</div>
+        <div id="map"></div>
+        <div class="info">
+            <p>Latitude: <span id="lat">0</span> | Longitude: <span id="lng">0</span> | Altitude: <span id="alt">0</span> m</p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        let map;
+        let marker;
+        let path;
+        const positions = [];
+        let socket;
+
+        // Initialize WebSocket connection
+        function connectSocket() {
+            socket = io();
+            
+            // Socket connection events
+            socket.on('connect', function() {
+                document.getElementById('connection-status').textContent = 'Connected to server';
+                document.getElementById('connection-status').classList.add('connected');
+            });
+            
+            socket.on('disconnect', function() {
+                document.getElementById('connection-status').textContent = 'Disconnected from server';
+                document.getElementById('connection-status').classList.remove('connected');
+            });
+            
+            // Receive GPS data updates
+            socket.on('gps_update', function(data) {
+                updateGpsDisplay(data);
+            });
+        }
+
+        // Update the GPS display with received data
+        function updateGpsDisplay(data) {
+            document.getElementById('lat').textContent = data.latitude.toFixed(6);
+            document.getElementById('lng').textContent = data.longitude.toFixed(6);
+            document.getElementById('alt').textContent = data.altitude.toFixed(2);
+            
+            if (data.latitude !== 0 && data.longitude !== 0) {
+                const position = [data.latitude, data.longitude];
+                marker.setLatLng(position);
+                
+                // Only add position to path if it's different from the last one
+                if (positions.length === 0 || 
+                    position[0] !== positions[positions.length-1][0] || 
+                    position[1] !== positions[positions.length-1][1]) {
+                    positions.push(position);
+                    path.setLatLngs(positions);
+                }
+                
+                map.setView(position);
+            }
+        }
+
+        // Initialize map
+        function initMap() {
+            map = L.map('map').setView([0, 0], 15);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            marker = L.marker([0, 0]).addTo(map);
+            path = L.polyline(positions, {color: 'blue'}).addTo(map);
+        }
+
+        // Initialize when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            connectSocket();
+        });
+    </script>
+</body>
+</html>
+        

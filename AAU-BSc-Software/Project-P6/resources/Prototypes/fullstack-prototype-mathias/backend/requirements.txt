@@ -1,0 +1,6 @@
+Flask
+Flask-SocketIO
+numpy
+shapely
+python-socketio
+eventlet

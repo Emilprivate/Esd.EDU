@@ -1,10 +1,60 @@
 \chapter{Testing}
 
-The testing approach for this project covers four main types of tests: \textbf{unit tests}, \textbf{integration tests}, \textbf{system tests}, and \textbf{acceptance tests}. Unit tests check individual components in isolation, integration tests verify the interaction between modules, system tests assess the complete system in a simulated or real environment, and acceptance tests confirm that the final product meets the specified requirements.
+The testing approach for this project covers five main types of tests: \textbf{unit tests}, \textbf{integration tests}, \textbf{system tests}, \textbf{usability tests}, and \textbf{acceptance tests}. Unit tests, integration tests, and system tests are primarily conducted to ensure reliability: unit tests check individual components in isolation, integration tests verify the interaction between modules, and system tests assess the complete system in a simulated or controlled environment. Usability tests evaluate how intuitive and user-friendly the interface is for operators. Acceptance tests confirm that the final product meets the specified requirements and functions correctly in real-world conditions.
 
-All test cases follow the \textbf{AAA (Arrange-Act-Assert)} pattern to ensure a consistent and structured testing process.
+All test cases follow the \textbf{AAA (Arrange-Act-Assert)} pattern to ensure a consistent and structured testing process, with usability tests following a task-based assessment methodology with user feedback collection.
 
 \section{Unit Testing}
 \section{Integration Testing}
 \section{System Testing}
 \section{Acceptance Testing}
+
+The acceptance test for the SCAN system is designed to validate the complete workflow in a realistic search and rescue scenario. The test was carried out on a beach in Hals, Denmark.
+
+\subsection{Test Procedure}
+
+\begin{enumerate}
+    \item \textbf{Site Preparation:} The team set up the drone and the SCAN system on a laptop at the beach (see Figure~\ref{fig:acceptance-test-setup}).
+    \item \textbf{Test Subject Placement:} One group member positioned themselves in the water to simulate a person in distress (see Figure~\ref{fig:test-subject-placement}).
+    \item \textbf{Flight Execution:} The drone was launched and flew at an altitude of 20 meters, following a predefined search pattern over the water.
+    \item \textbf{Detection:} The onboard camera captured images, which were processed by the YOLO-based detection model running on the laptop.
+    \item \textbf{Landing:} After completing the search pattern, the drone autonomously returned and landed at its starting position.
+    \item \textbf{Result Evaluation:} The test was considered successful if the drone followed the planned route, landed at the starting position, and the YOLO model correctly detected the group member in the water.
+\end{enumerate}
+
+\subsection{Success Criteria}
+
+\begin{itemize}
+    \item The drone autonomously follows the generated flight path at the specified altitude.
+    \item The drone lands at its original starting position after completing the mission.
+    \item The YOLO detection model identifies the group member in the water and marks their position in the system interface.
+\end{itemize}
+
+\subsection{Documentation}
+
+Photographic documentation is included, showing the testing site and the group member in the water, to support the acceptance test results.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{7. Figures/acceptance-test-setup.jpg}
+    \caption{Acceptance test setup at the beach in Hals, Denmark}
+    \label{fig:acceptance-test-setup}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{7. Figures/test-subject-placement.jpg}
+    \caption{Test subject placement: group member in the water}
+    \label{fig:test-subject-placement}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{7. Figures/detection-result.jpg}
+    \caption{Detection result: YOLO model identifies the group member in the water}
+    \label{fig:detection-result}
+\end{figure}
+
+\subsection{Result}
+
+As shown in Figure~\ref{fig:detection-result}, the acceptance test was successful. The drone autonomously followed the planned route, landed at its original starting position, and the YOLO detection model correctly identified the group member in the water. This demonstrates that the SCAN system meets its intended requirements and is capable of supporting search and rescue operations in real-world conditions.

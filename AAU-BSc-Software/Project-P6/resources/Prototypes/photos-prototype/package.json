@@ -1,0 +1,38 @@
+{
+  "name": "p6-scan",
+  "version": "1.0.0",
+  "description": "P6-scan project",
+  "main": "index.js",
+  "scripts": {
+    "create-venv": "node scripts/create-venv.js",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:install": "cd frontend && npm install",
+    "frontend:reset": "npx rimraf frontend/node_modules frontend/dist frontend/package-lock.json",
+    "backend:install": "npm run create-venv && node scripts/setup-backend.js",
+    "backend:run": "node scripts/run-backend.js",
+    "backend:reset": "npx rimraf venv .python-version",
+    "install:all": "npm install && npm run frontend:install && npm run backend:install",
+    "run:all": "concurrently \"npm run backend:run\" \"npm run frontend:dev\"",
+    "reset:all": "npm run frontend:reset && npm run backend:reset"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.16",
+    "concurrently": "^8.2.2",
+    "rimraf": "^6.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoftwareGroup305-AAU/P6-scan.git"
+  },
+  "keywords": [
+    "drone",
+    "parrot",
+    "anafi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoftwareGroup305-AAU/P6-scan/issues"
+  },
+  "homepage": "https://github.com/SoftwareGroup305-AAU/P6-scan"
+}

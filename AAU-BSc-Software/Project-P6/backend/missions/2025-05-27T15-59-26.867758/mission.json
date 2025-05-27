@@ -1,0 +1,71 @@
+{
+  "waypoints": [
+    {
+      "lat": 56.99194556797073,
+      "lon": 10.011316193742111,
+      "type": "grid_center",
+      "grid_id": 4,
+      "order": 1,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99194556797073,
+      "lon": 10.01182180616817,
+      "type": "grid_center",
+      "grid_id": 1,
+      "order": 2,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99194556797073,
+      "lon": 10.012327418594229,
+      "type": "grid_center",
+      "grid_id": 2,
+      "order": 3,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99175392631991,
+      "lon": 10.012327418594229,
+      "type": "grid_center",
+      "grid_id": 3,
+      "order": 4,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99156228466909,
+      "lon": 10.012327418594229,
+      "type": "grid_center",
+      "grid_id": 5,
+      "order": 5,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99175392631991,
+      "lon": 10.01182180616817,
+      "type": "grid_center",
+      "grid_id": 0,
+      "order": 6,
+      "rotation": 0
+    },
+    {
+      "lat": 56.99175392631991,
+      "lon": 10.011316193742111,
+      "type": "grid_center",
+      "grid_id": 6,
+      "order": 7,
+      "rotation": 0
+    }
+  ],
+  "start_point": {
+    "lat": 56.991855333333326,
+    "lon": 10.010852833333333,
+    "type": "start_end",
+    "order": 0
+  },
+  "drone_start_point": {
+    "lat": 56.991855333333326,
+    "lon": 10.010852833333333
+  },
+  "altitude": "20"
+}

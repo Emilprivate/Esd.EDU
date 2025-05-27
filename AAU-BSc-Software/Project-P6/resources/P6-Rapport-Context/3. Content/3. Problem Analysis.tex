@@ -1,5 +1,14 @@
 \chapter{Problem Analysis}
 
+\section{System Integration Challenges in Maritime Search and Rescue}
+
+Maritime search and rescue (SAR) operations typically require the use of multiple separate tools for mission planning, drone control, data collection, and analysis~\cite{connectivity_challenges_2024, uav_holistic_2024}. While platforms such as PX4 and ArduPilot provide automated grid-based path planning features-allowing users to define search areas and generate systematic flight paths for coverage~\cite{ardupilot_grid_2023, px4_mission_2024}-these solutions primarily address the planning and navigation stages. Operators must still manually transfer data between mission planning software, flight control interfaces, and post-mission detection or analysis tools.
+
+Although auto-grid and survey functions in tools like Mission Planner and QGroundControl facilitate the creation of efficient coverage paths, there are notable limitations in the context of maritime SAR. First, these workflows do not natively integrate real-time or automated person detection; image analysis is typically performed after the mission using separate applications, which can delay rescue efforts. Second, standard grid-based planning tools are designed for general aerial surveys and may not account for maritime-specific challenges such as wave motion, water surface reflections, or the need for altitude adjustments to ensure reliable detection of small objects in water~\cite{SARSurvey2024}. Third, the lack of a unified workflow means that operators are required to have technical knowledge of multiple platforms and must coordinate data flow between them, which increases the risk of errors and slows down the response process.
+
+The absence of end-to-end integration-from area definition through flight execution to automated detection and result presentation-remains a gap in current drone-based SAR solutions. This fragmentation is particularly problematic in time-sensitive maritime environments, where rapid transitions from search area definition to actionable detection results are essential for effective rescue operations.
+
+
 \section{Software Framework Evaluation}
 % Analysis of why we chose to work with SDK's over the other options.
 The selection of a software framework for the SCAN project involved considering multiple different approaches to drone control, the development process, and the limitations of the project resources. 
@@ -230,23 +239,30 @@ For computational efficiency during implementation, approximation algorithms off
 Selecting appropriate CPP algorithms for drone surveying requires evaluation against application-specific criteria:
 \begin{enumerate}
     \item \textbf{Camera Field of View Integration:} Algorithms must account for camera FOV characteristics, including projection geometry, overlap requirements, and angular distortion at different altitudes. This integration ensures complete coverage with minimal redundancy.
-    \item \textbf{Path Smoothness:} Path smoothness affects both flight efficiency and data quality. Algorithms should generate trajectories with limited angular changes, respecting the drone's turning capabilities and minimizing motion blur in captured imagery.
+    \item \textbf{Waypoint Optimization:} Since the drone operates in a stop-and-capture mode rather than continuous motion, the algorithm should optimize waypoint sequence to minimize total flight distance while ensuring complete coverage.
     \item \textbf{Computational Simplicity:} For practical implementation in a project with broader system design focus, algorithms should maintain computational simplicity. While advanced methods may produce marginally better paths, the additional implementation complexity must be justified by significant performance improvements.
-    \item \textbf{Adaptability to Area Size:} Algorithms should scale effectively with increasing area sizes. For very large survey regions, the approach should permit partitioning into manageable sub-areas that can be processed separately while maintaining coverage continuity.
+    \item \textbf{Robustness to Shape Complexity:} The algorithm should handle arbitrary polygonal search areas without requiring complex pre-processing or specialized geometric analysis.
 \end{enumerate}
 
 No single algorithm perfectly satisfies all requirements across all scenarios. Each method presents trade-offs between computational complexity, path quality, and implementation difficulty.
 
-Based on analysis of existing CPP methods, a grid-based decomposition approach combined with basic optimization techniques provides a balanced solution for the SCAN project. Grid-based methods offer direct incorporation of camera parameters through cell-size calculations, computational simplicity for implementation, and straightforward scaling to different area sizes~\cite{MathworksUAV}. The rectangular flight patterns align well with image processing requirements for photogrammetry and visual data analysis.
+Based on analysis of existing CPP methods, a grid-based decomposition approach combined with basic optimization techniques provides a balanced solution for the SCAN project. Grid-based methods offer direct incorporation of camera parameters through cell-size calculations, computational simplicity for implementation, and straightforward handling of irregular boundaries~\cite{MathworksUAV}. The grid-based pattern aligns well with image processing requirements and the stop-and-capture flight mode of the drone.
 
-This approach can be enhanced with simple waypoint optimization to reduce unnecessary transitions between coverage regions. Rather than implementing complex TSP solvers, a greedy nearest-neighbor approach for connecting decomposed regions offers a reasonable compromise between implementation complexity and path quality. Such an approach generates valid coverage paths while maintaining modularity that permits future algorithm replacement as the system evolves.
+This approach can be enhanced with waypoint optimization to reduce unnecessary transitions between grid points. A greedy nearest-neighbor heuristic for initial path sequencing, followed by Lin-Kernighan improvement, offers an effective compromise between implementation complexity and path quality. This two-stage optimization approach ensures efficient mission execution while remaining computationally tractable for on-site deployment.
 
-For large survey areas, the implementation should include area subdivision capabilities that automatically partition extensive regions into manageable segments. These segments can then be processed individually or assigned to multiple drones for parallel execution. This simple hierarchical approach addresses the concern about CPP scalability for large environments without introducing excessive algorithmic complexity.
+\subsection{Selected Algorithm Implementation}
 
-Path smoothing can be implemented as a post-processing step using basic filtering techniques or simple curve fitting methods. While advanced B-spline or Bézier curve approaches would produce optimally smooth paths, simpler techniques such as corner cutting or moving average filters provide acceptable smoothness with minimal implementation effort.
+For the SCAN system implementation, we selected a specific combination of algorithms that directly addresses the identified requirements:
 
-This balanced approach prioritizes functional implementation and integration with other system components while maintaining acceptable performance for drone surveying applications focused on human detection. The modular design allows for future algorithmic improvements without requiring complete system redesign.
+\begin{enumerate}
+    \item \textbf{Grid-based decomposition} for coverage planning, where grid size is calculated based on camera FOV and altitude parameters, with adjustable overlap percentage to ensure complete coverage
+    \item \textbf{Nearest-neighbor initialization} to create an initial path sequence with reasonable efficiency
+    \item \textbf{Lin-Kernighan heuristic improvement} to refine the path and further reduce total flight distance
+\end{enumerate}
 
+This combination provides several advantages for the specific application context. The grid-based approach ensures systematic coverage with predictable image capture locations. The two-stage path optimization balances computational efficiency with flight path quality, critical for maximizing battery life during search operations. The modularity of this approach also allows individual components (grid generation, path sequencing) to be refined independently as system requirements evolve.
+
+While more sophisticated approaches exist, including continuous trajectory optimization or advanced multi-objective techniques, the selected algorithms provide an optimal balance of implementation complexity, computational efficiency, and mission effectiveness. The approach aligns perfectly with the drone's operational mode of flying to a position, stopping to stabilize, capturing an image, and then proceeding to the next waypoint - a flight pattern where complex path smoothing would provide minimal practical benefit.
 % Analysis of different ways of implementing real-time person detection and object recognition.
 \section{Computer Vision Integration}
 

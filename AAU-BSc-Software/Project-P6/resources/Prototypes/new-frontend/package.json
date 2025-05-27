@@ -1,0 +1,31 @@
+{
+  "name": "drone-control-frontend-ts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.1.0",
+    "@types/leaflet": "^1.9.17",
+    "@types/react-leaflet": "^2.8.3",
+    "@types/socket.io-client": "^1.4.36",
+    "leaflet": "^1.9.4",
+    "leaflet-draw": "^1.0.4",
+    "react-leaflet": "^5.0.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}
